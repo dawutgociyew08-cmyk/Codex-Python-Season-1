@@ -1,2 +1,15 @@
-# Codex-Python-Season-1
-print("Ben Dawut 16 yasindayim ve python ogreniyorum gelecekte backend yazilimci olmak istiyorum ve bu  01.02.2026 yilinda basladim ve devam edicegimi dusunuyorum")
+# 🚀 Codex Python: Sezon 1
+
+Bu depo, 16 yaşında bir backend geliştirici adayı olarak Python yolculuğumda aldığım tüm notları ve çözdüğüm algoritmaları içerir. 🇩🇪
+
+## 📂 İçerik
+Tüm ders notlarıma ve kod örneklerime aşağıdaki dosyadan ulaşabilirsiniz:
+👉 **[Anfang.md](./Anfang.md)**
+
+## 🎯 Hedeflerim
+- **Mart 2026:** Python Temellerini (Döngüler, Fonksiyonlar) tamamlamak.
+- **Temmuz 2026:** SQL ve Veritabanı dünyasına giriş yapmak.
+- **Gelecek:** Almanya/Avusturya'da profesyonel bir Backend Developer olmak.
+
+---
+*"Kodlarımı her 1-2 haftada bir güncelleyeceğim. Ziyaret ettiğiniz için teşekkürler!"*
