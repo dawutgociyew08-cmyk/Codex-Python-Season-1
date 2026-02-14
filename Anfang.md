@@ -1452,3 +1452,98 @@ if butce >= 12000 or sponsor_var_mi == True:
 else:
     print("uzgunum butce rakami dusuk veya sponsorlugunuz yok giris reddedildi ") 
 ```
+##### --- ikinci bolum 
+```py
+yas = 18
+sabika_kaydi = True
+tecrube_yili = 2
+ustun_yetenek = True
+
+if yas == 18:
+    print("yasiniz 18 veya 18 den yukarida vizeye devam edelim ")
+    if sabika_kaydi == False and (tecrube_yili >= 2 or ustun_yetenek):
+        print("sabika kaydiniz yok ve tecrube_yili/ustun_yetenigiz oldugu belli vize kabul edildi")
+    else:
+        if sabika_kaydi == True:
+            print("uzgunum sabika kaydiniz var vize reddedildi")
+        elif tecrube_yili < 2 or ustun_yetenek == False:
+            print("uzgunum tecrube_yiliniz/ustun_yeteginiz yok bu yuzden vize reddedildi")
+else:
+    print("18 yasdan kucuksunuz vize reddedildi")
+```
+##### --- ucuncu bolum
+```py
+yas = 18
+sabika_kaydi = True
+tecrube_yili = 2
+ustun_yetenek = True
+
+if yas == 18:
+    print("yasiniz 18 veya 18 den yukarida vizeye devam edelim ")
+    if sabika_kaydi == False and (tecrube_yili >= 2 or ustun_yetenek):
+        print("sabika kaydiniz yok ve tecrube_yili/ustun_yetenigiz oldugu belli vize kabul edildi")
+    else:
+        if sabika_kaydi == True:
+            print("uzgunum sabika kaydiniz var vize reddedildi")
+        elif tecrube_yili < 2 or ustun_yetenek == False:
+            print("uzgunum tecrube_yiliniz/ustun_yeteginiz yok bu yuzden vize reddedildi")
+else:
+    print("18 yasdan kucuksunuz vize reddedildi")
+```
+##### --- dorduncu bolum karmasik
+```py
+GPA = 2.9
+IELTS = 6.4
+disiplin_cezasi = True
+
+if disiplin_cezasi == False:
+    print("disiplin cezasi yok diger onemli kurallara devam edelim")
+    if GPA >= 4.0 and IELTS >= 6.5:
+        print("GPA ve IELTS ortalamasi karsiliyor universiteye kabul edildiniz")
+    elif GPA >= 5.0 and IELTS < 6.5:
+        print("GPA Durumu yeterli ama IELTS yetersiz universitede iyice hazirlanmalisinz istisna olarak GPA normalden yuksek universite kabul edildiniz")
+    elif GPA < 3.0 and IELTS >= 6.5:
+        print("IELTS yuksek olsada GPA dusuk bu yuzden bir dahaki sefere universite kabul edilmedi")
+    elif GPA < 3.0 and IELTS < 6.5:
+        print("uzgunum GPA ve IELTS yetersiz bu yuzden universite bolumu kabul edilmedi")
+    else:
+        print("Akademik sartlar tam saglanamadi")
+else:
+    print("disiplin cezasi yuzunden reddedildi")
+```
+##### --- dorduncu bolum sade
+```py
+GPA = 3.0
+IELTS = 6.5
+disiplin_cezasi = True
+
+if disiplin_cezasi:
+    print("disiplin cezasi kabul edilmesi")
+else:
+
+    normal_kabul = (GPA >= 3.0 and IELTS >= 6.5)
+    istisna_kabul = (GPA >= 4.0 and IELTS >= 6.0)
+
+    if normal_kabul or istisna_kabul:
+        print("universiteye hos geldiniz")
+    else:
+        print("Sartlar saglanamadi")
+```
+##### --- ilk sablon bolum
+```mermaid
+graph LR
+    A[Başla] --> B{Almanca var mı?}
+    B -- Hayır --> F[RED: Geçemezsiniz]
+    B -- Evet --> C{Diploma var mı?}
+    C -- Hayır --> F
+    C -- Evet --> D[KASA AÇILDI: Devam]
+```
+##### --- ikinci sablon bolum
+```mermaid
+graph TD
+    Start((Değişken)) --> Check{Değer Kaç?}
+    Check -- "Sayı (1, 2, ...)" --> TrueNode[TRUE]
+    Check -- "Sıfır (0)" --> FalseNode[FALSE]
+    TrueNode --> ActionT[Döngü Devam Eder]
+    FalseNode --> ActionF[Döngü Durur]
+```
