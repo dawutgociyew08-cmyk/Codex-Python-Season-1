@@ -1434,4 +1434,21 @@ graph TD
     Q2 -- ">= 50.000€" --> Approved[Blue Kart Onaylandı!]
     Q2 -- "40.000€ - 50.000€" --> Review[Ek inceleme yapılmalı]
     Q2 -- "< 40.000€" --> WorkVisa[Çalışma vizesi ile gidiş]
+
+```
+#### --- CARSAMBA GUNU TELAFI IF,ELIF,ELSE,NESTED IF --- [14.02.2026]
+##### --- ilk bolum
+```py
+butce = 12000
+sponsor_var_mi = False
+dil_seviyesi = "B2"
+
+if butce >= 12000 or sponsor_var_mi == True:
+    print("butce/sponsor bulunmakta devam edelim")
+    if dil_seviyesi == "B1" or dil_seviyesi == "B2":
+        print("dil seviyeniz uygun vize alabilirsinz")
+    else:
+        print("uzgunum dil gecerliliginiz B1 den dusuk alamam")
+else:
+    print("uzgunum butce rakami dusuk veya sponsorlugunuz yok giris reddedildi ") 
 ```
