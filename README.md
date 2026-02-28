@@ -12,4 +12,4 @@ Tüm ders notlarıma ve kod örneklerime aşağıdaki dosyadan ulaşabilirsiniz:
 - **Gelecek:** Almanya/Avusturya'da profesyonel bir Backend Developer olmak.
 
 ---
-*"Bu depo, haftalık çalışma planıma sadık kalınarak her Pazartesi, Çarşamba ve Cuma günleri yeni ders notları ve kod örnekleriyle güncellenmektedir. Ziyaret ettiğiniz için teşekkürler!"*
+*"Bu depo, haftalık çalışma planıma sadık kalınarak her Pazartesi, Çarşamba ve Cuma günleri yeni ders notları hazirliyorum githup ise sadece cumartesi/pazar gunu guncelleyecegim. Ziyaret ettiğiniz için teşekkürler!"*
