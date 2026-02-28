@@ -29,7 +29,7 @@ Okunabilirlik: Python, İngilizceye en yakın dildir. C++'ta 10 satırda yapaca�
 
 0.1.9 Kütüphaneler: Python'ın her şey için hazır bir "modülü" vardır. Tekerleği her seferinde yeniden icat etmene gerek kalmaz.
 ```
-### --- KOD ORGANİZASYONU VE SIRALAMA DİSİPLİNİ --- [0.2.0-0.3.3]--(0.3.4-0.3.9 Nicht Platziert [NP_031])
+### --- KOD ORGANİZASYONU VE SIRALAMA DİSİPLİNİ --- [0.2.0-0.3.3]
 ```PY
 0.2.0 Python kodu bir inşaat gibidir; önce temeli atmalı, sonra katları çıkmalı ve en son dekorasyonu yapmalısın. 
 
@@ -173,7 +173,7 @@ if deneme_sayisi == MAX_GIRIS_DENEMESI:
 print("--- Sistem Sonlandi ---")
 
 ```
-### --- PYTHON'IN 4 TEMEL SÜTUNU (THE BIG FOUR) --- [0.4.0-0.6.0]--(0.6.1-0.9.9 Nicht Platziert [NP_031])
+### --- PYTHON'IN 4 TEMEL SÜTUNU (THE BIG FOUR) --- [0.4.0-0.6.0]
 ```PY
 0.4.0 Bir programın hayatta kalması için bu dört yapıya ihtiyacı vardır. Bunları bir mutfak gibidir mesela:
 
@@ -288,7 +288,7 @@ print("Yükleniyor", end="...")
 print("Bitti")
 # Çıktı: Yükleniyor...Bitti (Alt satıra geçmeden yan yana yazdı)
 ```
-##### --- INPUT --- [2.0-2.3]--(2.4-2.9-[NP_031])
+##### --- INPUT --- [2.0-2.3]
 ```PY
 2.0 input() - Kullanıcıdan Veri Alma
 
@@ -300,7 +300,7 @@ print("Bitti")
 isim = input("Adın nedir? ")
 print("Hoş geldin " + isim)
 ```
-##### --- INT --- [3.0-3.3]--(3.4-3.9-[NP_031])
+##### --- INT --- [3.0-3.3]
 ```PY
 3.0 int() - Tam Sayı Dönüştürme
 
@@ -312,7 +312,7 @@ print("Hoş geldin " + isim)
 yas = int(input("Yaşını gir: ")) # Kullanıcıdan gelen metni sayıya çevirdik
 print(yas + 5)
 ```
-##### --- STR --- [4.0-4.3]--(4.4-4.9-[NP_031])
+##### --- STR --- [4.0-4.3]
 ```PY
 4.0 str() - Metne Dönüştürme (String)
 
@@ -325,7 +325,7 @@ yas = 16
 mesaj = "Dawut " + str(yas) + " yasinda." # Sayıyı metne çevirip birleştirdik
 print(mesaj) # Çıktı: Dawut 16 yasinda.
 ```
-##### --- FLOAT --- [5.0-5.3]--(5.4-5.9-[NP_031])
+##### --- FLOAT --- [5.0-5.3]
 ```PY
 5.0 float() - Ondalıklı Sayı Dönüştürme
 5.1 Nedir: Belirtilen bir tam sayıyı veya sayı içeren bir metni ondalıklı sayıya (floating point) çevirmek için kullanılır. Python'da hassas hesaplamalar (para birimi, koordinat vb.) için gereklidir.
@@ -336,7 +336,7 @@ print(mesaj) # Çıktı: Dawut 16 yasinda.
 sayi = float(5)        # Çıktı: 5.0 (Tam sayıyı ondalıklı yapar)
 fiyat = float("19.99") # Çıktı: 19.99 (Metni sayıya çevirir)
 ```
-##### --- LEN --- [6.0-6.3]--(6.4-6.9-[NP_031])
+##### --- LEN --- [6.0-6.3]
 ```PYTHON
 6.0 len() - Uzunluk Ölçme
 
@@ -399,7 +399,7 @@ print(len(sehirler)) # Çıktı: 3
 ```
 
 #### --- [LISTELER] --- {II-KISIM}
-##### --- APPEND()--[8.0-8.3]--(8.4-8.9-[NP_031])
+##### --- APPEND()--[8.0-8.3]
 ```PY
 8.0 append() - Sona Ekleme
 
@@ -412,7 +412,7 @@ sayilar = [1, 2, 3]
 sayilar.append(4)
 print(sayilar) # Çıktı: [1, 2, 3, 4]
 ```
-##### --- LISTE[]--[9.0-9.3]--(9.4-9.9-[NP_031])
+##### --- LISTE[]--[9.0-9.3]
 ```PY
 9.0 liste[0] - İndeksleme (Erişim)
 
@@ -425,7 +425,7 @@ meyveler = ["Elma", "Armut", "Muz"]
 print(meyveler[0]) # Çıktı: "Elma"
 print(meyveler[2]) # Çıktı: "Muz"
 ```
-##### --- INSERT()--[10.0-10.3]--(10.4-10.9-[NP_031])
+##### --- INSERT()--[10.0-10.3]
 ```PY
 10.0 insert() - Araya Ekleme
 
@@ -438,7 +438,7 @@ isimler = ["Dawut", "Gemini"]
 isimler.insert(1, "Python") # 1. indekse (araya) ekle
 print(isimler) # Çıktı: ["Dawut", "Python", "Gemini"]
 ```
-##### --- REMOVE()--[11.0-11.3]--(11.4-11.9-[NP_031])
+##### --- REMOVE()--[11.0-11.3]
 ```PY
 11.0 remove() - Değere Göre Silme
 
@@ -451,7 +451,7 @@ esyalar = ["Defter", "Kalem", "Silgi"]
 esyalar.remove("Kalem")
 print(esyalar) # Çıktı: ["Defter", "Silgi"]
 ```
-##### --- POP()--[12.0-12.3]--(12.4-12.9-[NP_031])
+##### --- POP()--[12.0-12.3]
 ```PY
 12.0 pop() - Konuma Göre Silme
 
@@ -464,7 +464,7 @@ notlar = [85, 90, 100]
 notlar.pop(0) # İlk elemanı (85) siler
 print(notlar) # Çıktı: [90, 100]
 ```
-##### --- SORT()--[13.0-13.3]--(13.4-13.9-[NP_031])
+##### --- SORT()--[13.0-13.3]
 ```PY
 13.0 .sort() - Listeyi Sıralama
 
@@ -483,7 +483,7 @@ isimler = ["Dawut", "Nurjemal", "Gurban"]
 isimler.sort()
 print(isimler) # Çıktı: ["Dawut", "Gurban", "Nurjemal"]
 ```
-##### --- SORTED()--[14.0-14.3]--(14.4-14.9-[NP_031])
+##### --- SORTED()--[14.0-14.3]
 ```PY
 14.0 sorted() - Geçici Sıralama
 
@@ -500,7 +500,7 @@ print(sorted(rakamlar)) # Çıktı: [1, 2, 3, 4]
 # Orijinal liste bozulmadı!
 print(rakamlar) # Çıktı: [3, 1, 4, 2]
 ```
-##### --- REVERSE()--[15.0-15.3]--(15.4-15.9-[NP_031])
+##### --- REVERSE()--[15.0-15.3]
 ```PY
 15.0 .reverse() - Listeyi Tersine Çevirme
 
@@ -518,7 +518,7 @@ sayilar = [1, 9, 3, 7]
 sayilar.reverse()
 print(sayilar) # Çıktı: [7, 3, 9, 1]
 ```
-##### --- (REVERSE = ...)--[16.0-16.7]--(16.8-16.9-[NP_031])
+##### --- (REVERSE = ...)--[16.0-16.7]
 
 ```PY
 16.0 .sort(reverse = ...) - Sıralama Yönünü Belirleme
@@ -543,7 +543,7 @@ print(puanlar) # Çıktı: [10, 50, 80, 100]
 
 16.7 reverse=True/False ayarı sadece sıralama yapan fonksiyonlarda (sort() ve sorted()) kullanılır. Diğer liste komutlarında (append, remove, pop vb.) bu ayar bulunmaz.
 ```
-##### --- MAX()--[17.0-17.3]--(17.4-17.9-[NP_031])
+##### --- MAX()--[17.0-17.3]
 ```PY
 17.0 max() - En Büyük Değeri Bulma
 
@@ -556,7 +556,7 @@ notlar = [85, 95, 70, 100, 80]
 en_yuksek = max(notlar)
 print(en_yuksek) # Çıktı: 100
 ```
-##### --- MIN()--[18.0-18.3]--(18.4-18.9-[NP_031])
+##### --- MIN()--[18.0-18.3]
 ```PY
 18.0 min() - En Küçük Değeri Bulma
 
@@ -569,7 +569,7 @@ sicakliklar = [18, 22, 15, 25, 20]
 en_dusuk = min(sicakliklar)
 print(en_dusuk) # Çıktı: 15
 ```
-##### --- INDEX()--[19.0-19.2]--(19.3-24.9 Zu Viele Leere Abschniitte [NP_031__AND__ZVLA_034])
+##### --- INDEX()--[19.0-19.2]
 ```py
 19.0 İndeks (Dizin) Nedir: Bir listenin içindeki her bir elemanın sahip olduğu benzersiz "adres numarası"dır. Python'da elemanlara bu numaralar üzerinden ulaşılır.
 
@@ -585,8 +585,8 @@ plan = ["Python", "Matematik", "Almanca"]
 print(plan[0]) # Çıktı: "Python"
 ```
 
-#### --- [DONGULER] --- {III-KISIM}
-##### --- F-STRING--[25.0-25.4]--(25.5-25.9-[NP_031])
+#### --- [KOSULLU_IFADELER] --- {III-KISIM}
+##### --- F-STRING--[25.0-25.4]
 ```PY
 25.0 f-string - Modern Metin Biçimlendirme
 
@@ -608,7 +608,7 @@ print(f"Merhaba {ad}, hedefin {hedef}")
 hizlar = [100, 150]
 print(f"En yüksek hız: {max(hizlar)}") # Parantez içinde fonksiyon çalışabilir
 ```
-##### --- IF ELIF ELSE NESTED IF--[26.0-26.9]
+##### --- IF ELIF ELSE NESTED IF
 ###### --- IF ---
 ```PY
 26.0 if - "Eğer" Kontrolü
@@ -742,7 +742,7 @@ ehliyet_var_mi = False
 if not ehliyet_var_mi:
     print("Araç kullanamazsın, önce ehliyet almalısın.")
 ```
-##### --- KARSILASTIRMA_OPERATORLERI--[28.0-28.7]--(28.8-28.9-[NP-031])
+##### --- KARSILASTIRMA_OPERATORLERI
 ```PY
 28.0 == (Eşit mi?): İki değerin birbirinin aynısı olup olmadığını kontrol eder.
      Örnek: 5 == 5 -> True | 5 == 3 -> False
@@ -766,8 +766,490 @@ if not ehliyet_var_mi:
      "==" işareti ise soru sormak/kontrol etmek içindir (x == 5).
 ``` 
 
-# --- CODEX PYTHON: BIRINCI SEZON ---
-## --- BIRINCI KISIM --- [01.01.2026-00.02.2026]
+#### --- [DONGULER] --- {IV-KISIM}
+##### --- FOR IN RANGE--[29.0-29.9]
+###### --- FOR ---
+```py
+29.0 for - "Tekrar" Döngüsü
+
+29.1 Nedir: Belirli bir veri grubundaki (liste, metin, sayı aralığı) her bir öğe için kodun tekrar tekrar çalıştırılmasını sağlar. "Her biri için şunu yap" demektir.
+
+29.2 Kurallar:
+
+for kelimesinden sonra bir değişken adı yazılır (bu değişken, her adımda sıradaki öğeyi temsil eder).
+
+in anahtar kelimesiyle döngünün hangi veri üzerinde döneceği belirtilir.
+
+Satır sonuna : (iki nokta) konur ve alt satır içeriden (indent) başlar.
+
+29.3 Örnek:
+diller = ["Python", "Java", "SQL"]
+
+for dil in diller:
+    print(dil + " öğrenerek backend yolunda ilerliyorum.")
+```
+###### --- IN ---
+```py
+29.4 in - "İçinde mi?" ve "Üyelik" Kontrolü
+
+29.5 Nedir: Python'da iki temel görevi vardır. Birincisi, for döngüsünde bir veri grubunun içinde gezinmeyi sağlar. İkincisi ise, bir öğenin bir grubun (liste, metin, set) parçası olup olmadığını kontrol eder.
+
+29.6 Görevleri:
+
+Döngü Kurucu: Bir koleksiyonun (liste vb.) başından sonuna kadar her elemanı sırayla yakalar.
+
+Sorgulayıcı: Bir eleman o grubun içinde varsa True, yoksa False değerini döndürür.
+
+29.7 Örnek:
+# 1. Kullanım: Döngü içinde (Gezinme)
+hedef_ulkeler = ["Almanya", "Avusturya"]
+for ulke in hedef_ulkeler:
+    print(ulke + " hedefim için çalışıyorum.") [cite: 2026-01-03]
+
+# 2. Kullanım: Şart içinde (Kontrol)
+yetenekler = ["Python", "SQL", "Algorithm"]
+if "Python" in yetenekler:
+    print("Backend için doğru yoldasın.") [cite: 2026-02-11]
+```
+######  --- RANGE ---
+```PY
+29.8 range() - "Aralık" Fonksiyonu
+
+29.9.1 Nedir: Belirli bir başlangıç noktasından bitiş noktasına kadar sayı dizileri üretir. Elle liste yazmak yerine, bilgisayara "1'den 100'e kadar say" demeni sağlar.
+
+29.9.2 Kurallar:
+
+Tek parametre: range(5) yazarsan 0'dan başlar, 5'e kadar gider (5 dahil değildir).
+
+İki parametre: range(2, 6) yazarsan 2'den başlar, 6'ya kadar gider (6 dahil değildir).
+
+Üç parametre: range(1, 10, 2) yazarsan 1'den başlar, 10'a kadar ikişer ikişer atlayarak gider.
+
+29.9.3 Örnek:
+# 0'dan 4'e kadar (toplam 5 kez) çalışır
+for i in range(5):
+    print(f"{i}. adım: Disiplin başarı getirir.") [cite: 2026-01-25]
+
+# 10'dan 100'e kadar 10'ar 10'ar sayar
+for puan in range(10, 101, 10):
+    print(f"IQ Test Puanı: {puan}") [cite: 2026-01-25]
+```
+##### --- DIYM VE AAO--[30.0-30.7]
+###### --- DONGU YAPILARI VE ISIMLENDIRME MANTIGI ---
+```PY
+30.0 for x in y: vs for x in range(y):
+30.1 Nedir: Bu iki yapı arasındaki temel fark, birinin var olan bir grubun (liste, metin vb.) elemanları üzerinde gezmesi, diğerinin ise belirli bir sayıda (sayısal aralık) dönmesidir.
+
+30.2 Karşılaştırma ve İsimlendirme:
+
+for x in y: (Eleman Odaklı): y burada bir listedir (örneğin: sehirler). x ise o anki elemandır.
+
+İsimlendirme Tavsiyesi: x yerine elemanı tanımlayan bir isim seç (örneğin: for sehir in sehirler:).
+
+for x in range(y): (Sayı Odaklı): Burada döngü y kadar tekrar eder. x burada bir sayıdır (indeks).
+
+İsimlendirme Tavsiyesi: Genelde matematiksel bir sayaç olduğu için i, j veya sayac gibi kısa isimler kullanılır.
+
+30.3 Örnek ve Mantık:
+# 1. Mevcut bir liste üzerinde gezmek (Eleman odaklı)
+dersler = ["Matematik", "IQ", "Geometri"]
+for ders in dersler:
+    print(f"Bugün {ders} çalışılacak.") [cite: 2026-01-26]
+
+# 2. Belirli sayıda tekrar yapmak (Sayı odaklı)
+for i in range(3):
+    print(f"{i+1}. kod denemesi başarılı.")
+```
+###### --- ARTIRILMI ATAMA OPERATORLERI---
+```PY
+30.4 Atama ve Artırma Operatörleri
+
+30.5 Nedir: Bir değişkenin değerini mevcut değerinin üzerine bir işlem yaparak güncellemenin kısa yollarıdır. Özellikle döngü sayaçlarında ve toplam alma işlemlerinde kullanılır.
+
+30.6 Operatörler ve Mantığı:
+Operatör,Uzun Yazım,Kısa (Profesyonel) Yazım,Kullanım Amacı
+Toplama,x = x + y,x += y,Değeri y kadar artırır. (En çok kullanılan budur).
+Çıkarma,x = x - y,x -= y,Değeri y kadar azaltır. (Geri sayımlar için).
+Çarpma,x = x * y,x *= y,Değeri y katına çıkarır.
+Bölme,x = x / y,x /= y,Değeri y'ye böler.
+
+30.7 Döngü İçinde Pratik Örnek:
+toplam_calisma = 0
+gunluk_saat = 2
+
+# 5 gün boyunca toplam saati artırıyoruz
+for gun in range(5):
+    toplam_calisma += gunluk_saat # Her adımda 2 ekler
+    print(f"{gun+1}. gün sonunda toplam: {toplam_calisma} saat") [cite: 2026-01-28]
+```
+##### --- WHILE--[31.0-31.3]
+```PY
+31.0 while - "Şartlı Tekrar" Döngüsü
+31.1 Nedir: Bir şart True (doğru) olduğu sürece kod bloğunu tekrar tekrar çalıştıran döngü yapısıdır. "Şu durum devam ettiği sürece, bu işi yapmaya devam et" demektir.
+
+31.2 Kurallar:
+
+while kelimesinden sonra bir mantıksal şart yazılır.
+
+Şartın sonuna : (iki nokta) konur.
+
+Döngü içindeki kodlar mutlaka indent (içeriden) başlar.
+
+Kritik Kural: Döngünün bir noktada bitmesi için şartı bozan bir güncelleme (sayaç artırma vb.) yapılmalıdır; aksi takdirde "sonsuz döngüye" girer.
+
+31.3 Örnek:
+# Basit bir sayaç örneği
+deneme_hakki = 3
+
+while deneme_hakki > 0:
+    print(f"Sisteme giriş yapılıyor... Kalan hak: {deneme_hakki}")
+    deneme_hakki -= 1  # Öğrendiğin artırımlı atama!
+
+print("Giriş hakkınız doldu.")
+```
+##### --- CONTINUE BREAK--[32.0-32.7]
+###### --- CONTINUE ---
+```PY
+32.0 continue - "Pas Geç" Komutu
+32.1 Nedir: Döngü içinde bu komutla karşılaşıldığında, altındaki kodlar çalıştırılmaz ve döngü anında bir sonraki adıma (başa) döner. "Bu seferlik bunu atla ama devam et" demektir.
+
+32.2 Kurallar:
+
+Genellikle bir if şartı ile birlikte kullanılır.
+
+continue çalıştığı anda o tur biter; döngü tamamen durmaz, sadece o turdaki kalan işlemler iptal edilir.
+
+32.3 Örnek:
+# Sadece tek sayıları yazdırmak için çiftleri pas geçiyoruz
+for sayi in range(1, 6):
+    if sayi % 2 == 0:
+        continue # Çift sayıyı gördüğün an alt satırı okuma, başa dön!
+    print(f"Sayı: {sayi} (Tek olduğu için işleme alındı)")
+```
+###### --- BREAK ---
+```PY
+32.4 break - "Döngüyü Kır" Komutu
+32.5 Nedir: Döngü hangi aşamada olursa olsun, break komutu görüldüğü anda döngü tamamen durdurulur ve döngüden çıkılır. Döngünün geri kalan turları asla çalışmaz.
+
+32.6 Kurallar:
+
+Genellikle bir if şartı (arama, hata veya çıkış şartı) ile birlikte kullanılır.
+
+break çalıştığı anda program döngü bloğunun dışındaki ilk satıra atlar.
+
+32.7 Örnek:
+```
+##### --- NESTED FOR NESTED IF--[33.0-33.7]
+###### --- NESTED FOR ---
+```PY
+33.0 Nested Loops (İç İçe Döngüler)
+33.1 Nedir: Bir döngü bloğunun içerisinde ikinci bir döngünün yer almasıdır. Dıştaki döngünün her bir adımı için, içteki döngü baştan sona tüm turlarını tamamlar.
+
+33.2 Kurallar:
+
+İçteki döngü mutlaka dıştaki döngünün "indent" (4 boşluk) içinde olmalıdır.
+
+İçteki döngü bittikten sonra dıştaki döngü bir sonraki adımına geçer.
+
+Değişken isimleri karışmaması için genelde dıştakine i, içtekine j denir (matematiksel standart).
+
+33.3 Nested for (İç İçe For)
+Genellikle koordinat sistemleri, tablolar veya listelerin içindeki listeleri (matris) işlemek için kullanılır.
+
+Örnek (Koordinat Sistemi):
+for satir in range(1, 3): # Dış döngü 2 kez döner
+    for sutun in range(1, 4): # İç döngü, her satır için 3 kez döner
+        print(f"Konum: ({satir}, {sutun})")
+```
+###### --- NESTED WHILE ---
+```PY
+33.4 Nested while (İç İçe While)
+33.5 Nedir: Bir while döngüsünün içerisinde başka bir while döngüsünün çalışmasıdır. Koşula bağlı süreçlerin içinde, başka alt koşulların da kontrol edilmesi gereken durumlarda kullanılır.
+
+33.6 Kurallar:
+
+İç Sayaç Yönetimi: İçteki döngünün sayacı, genellikle dıştaki döngünün her adımında tekrar sıfırlanmalıdır (başlangıç değerine döndürülmelidir).
+
+Çifte İlerleme: Hem içteki hem de dıştaki döngünün durabilmesi için her iki sayacın da kendi blokları içinde artırılması (+= 1) zorunludur.
+
+Bağımsız Şartlar: İçteki while kendi şartı bozulana kadar döner, o bitince dıştaki while bir sonraki adıma geçer.
+
+33.7 Örnek (Antrenman Programı):
+set_sayisi = 1
+
+while set_sayisi <= 3: # Dış döngü: 3 set boyunca döner
+    print(f"--- {set_sayisi}. Set Başladı ---")
+    
+    tekrar = 1 # İç sayaç: Her set başında 1'den başlar
+    while tekrar <= 5: # İç döngü: Her sette 5 tekrar yapar
+        print(f"Tekrar: {tekrar}")
+        tekrar += 1 # İç sayacı artır
+        
+    print(f"--- {set_sayisi}. Set Bitti ---\n")
+    set_sayisi += 1 # Dış sayacı artır
+```
+
+#### --- [SOZLUKLER] --- {V-KISIM}
+##### --- KEY-VALUE AND F-SHRING--[35.0-35.8]
+```PY
+35.0 Dictionaries (Sözlükler)
+35.1 Nedir: Verileri Key-Value (Anahtar-Değer) çiftleri şeklinde tutan, sırasız ama çok hızlı çalışan bir veri yapısıdır. Gerçek bir sözlükte nasıl bir "kelime" ve onun "anlamı" varsa, Python sözlüklerinde de bir "anahtar" ve ona karşılık gelen "değer" vardır.
+
+35.2 Temel Kurallar:
+
+Süslü parantez {} ile tanımlanır.
+
+Anahtar ve değer arasında : (iki nokta) kullanılır.
+
+Her çift birbirinden , (virgül) ile ayrılır.
+
+Kritik: Anahtarlar (keys) benzersiz (unique) olmalıdır.
+
+35.3 Örnek (Kullanıcı Profil Kartı):
+# Bir yazılımcı profili oluşturalım
+yazilimci = {
+    "isim": "Dawut",
+    "yas": 16,
+    "hedef": "Backend Developer",
+    "diller": ["Python", "German"]
+}
+
+# Veriye erişim
+print(yazilimci["isim"]) # Çıktı: Dawut
+
+35.4 Sozluklerde islem
+
+İşlem,Kod Yazımı,Açıklama
+Ekleme/Güncelleme,"yazilimci[""sehir""] = ""Berlin""","Yeni anahtar yoksa ekler, varsa günceller."
+Silme,"del yazilimci[""yas""]",Belirtilen anahtarı ve değerini siler.
+Kontrol,"""hedef"" in yazilimci",Anahtarın sözlükte olup olmadığını sorgular (True/False).
+```
+###### --- KV F-SHRING ---
+```PY
+35.5 Sözlüklerde f-string Kullanımı
+35.6 Nedir: Sözlük içerisindeki değerleri (values), süslü parantezler {} aracılığıyla doğrudan metin içerisine gömme yöntemidir.
+
+35.7 Kritik Yazım Kuralı (Tırnak İşareti Disiplini):
+f-string içinde sözlük anahtarı çağırırken en büyük hata tırnak işaretlerini karıştırmaktır.
+
+Eğer f-string'i çift tırnak f"..." ile başlattıysan, anahtarı tek tırnak ['anahtar'] ile yazmalısın.
+
+Bunun tersi de geçerlidir: f'...["anahtar"]...'
+
+35.8 Örnek Senaryo (Sistem Raporu):
+# Veri tabanından gelen bir sözlük gibi düşün
+sunucu_durumu = {
+    "ip": "192.168.1.1",
+    "islemci_yuk": 45,
+    "aktif_mi": True
+}
+
+# f-string ile raporlama
+rapor = f"Sunucu IP: {sunucu_durumu['ip']} | Yük: %{sunucu_durumu['islemci_yuk']}"
+print(rapor)
+
+# Şartlı f-string kullanımı
+durum_metni = "Aktif" if sunucu_durumu["aktif_mi"] else "Devre Dışı"
+print(f"Sistem Durumu: {durum_metni}")
+```
+##### --- DEL POP GET--[36.0-36.9]
+###### --- DEL ---
+```PY
+36.0 Sözlüklerde Veri Silme: del
+36.1 Nedir: del (delete), bir sözlükteki belirli bir anahtarı ve ona bağlı olan değeri kalıcı olarak bellekten siler.
+
+36.2 Kurallar:
+
+del sozluk_adi["anahtar"] şeklinde kullanılır.
+
+Kritik Uyarı: Eğer sözlükte olmayan bir anahtarı silmeye çalışırsan Python KeyError hatası verir ve program durur. Bu yüzden silme işleminden önce anahtarın varlığından emin olmalısın.
+
+36.3 f-string ile Gelişmiş Örnek:
+# Bir kullanıcı veri tabanı örneği
+kullanici = {
+    "id": 101,
+    "kullanici_adi": "Dawut_Dev",
+    "gecici_kod": "123456", # Bu silinecek
+    "durum": "Aktif"
+}
+
+print(f"Sistem: {kullanici['kullanici_adi']} için güvenlik taraması başlıyor...")
+
+# Hassas veriyi silme işlemi
+del kullanici["gecici_kod"]
+
+# Kontrol çıktısı
+print(f"İşlem Tamam: Gecici kod silindi. Güncel veriler: {kullanici}")
+
+36.4 Temizleme İşlemi (clear)
+Eğer sözlüğün içindeki tek bir anahtarı değil de, tüm içeriği bir kerede boşaltmak istersen (sözlüğün kendisi kalsın ama içi boş olsun), şu komutu kullanırsın:
+kullanici.clear()
+print(f"Sözlük temizlendi mi? Liste: {kullanici}") # Çıktı: {}
+```
+###### --- POP ---
+```PY
+36.5 Sözlüklerde .pop() Metodu
+36.6 Nedir: Belirtilen bir anahtarı (key) sözlükten çıkarır ve o anahtara ait olan değeri (value) geri döndürür. Yani sildiğin şeyi bir değişkene atayıp kullanabilirsin.
+
+36.7 Kurallar:
+
+sozluk.pop("anahtar") şeklinde yazılır.
+
+Hata Önleme: Eğer sözlükte olmayan bir anahtarı silmeye çalışırsan Python hata verir. Bunu engellemek için ikinci bir parametre (varsayılan değer) ekleyebilirsin: sozluk.pop("anahtar", "Bulunamadı").
+
+36.8 Uygulamalı Örnek:
+kullanici = {
+    "isim": "Dawut",
+    "rutbe": "Admin",
+    "gecici_kod": "ABC-123"
+}
+
+# Veriyi hem silip hem de bir değişkene alıyoruz
+silinen_kod = kullanici.pop("gecici_kod")
+
+print(f"Sistem: {silinen_kod} kodlu veri güvenlik amacıyla silindi.")
+print(f"Güncel Kullanıcı Verisi: {kullanici}")
+
+# Olmayan bir veriyi silmeye çalışırken hata almamak için:
+not_bilgisi = kullanici.pop("notlar", "Böyle bir veri zaten yok")
+print(f"İşlem Sonucu: {not_bilgisi}")
+```
+###### --- GET ---
+```PY
+36.9.A Sözlüklerde .get() Metodu
+36.9.B Nedir: Bir sözlükten belirtilen anahtara ait değeri çekmeye yarar. Normal köşeli parantez yönteminden farkı, aranan anahtar sözlükte yoksa programın çökmesini (KeyError) engellemesidir.
+
+36.9.C Kurallar:
+
+sozluk.get("anahtar") şeklinde kullanılır. Anahtar bulunamazsa hata vermez, geriye None (boş) döner.
+
+Varsayılan Değer: Eğer anahtar yoksa None yerine kendi belirlediğin bir mesajın dönmesini sağlayabilirsin: sozluk.get("anahtar", "Varsayılan Mesaj").
+
+36.9.D Uygulamalı Örnek:
+ayarlar = {
+    "dil": "Almanca",
+    "tema": "Koyu"
+}
+
+# 1. Mevcut bir veriyi çekme
+mevcut_dil = ayarlar.get("dil")
+print(f"Sistem Dili: {mevcut_dil}")
+
+# 2. Olmayan bir veriyi çekme (HATA VERMEZ)
+konum = ayarlar.get("sehir")
+print(f"Konum Bilgisi: {konum}") # Çıktı: None
+
+# 3. f-string ile Varsayılan Değer atayarak çekme
+kullanici_adi = ayarlar.get("isim", "Misafir Kullanıcı")
+print(f"Hoş geldin, {kullanici_adi}!")
+```
+##### --- SOZLUK YONETIMI (EKLEME VE SORGULAMA)--[37.0-37.3]
+```PY
+37.0 Sözlük Yönetimi (Ekleme ve Sorgulama)
+37.1 Ekleme ve Güncelleme:
+Python'da sözlüğe yeni bir veri eklemek ile mevcut bir veriyi değiştirmek için aynı yöntem kullanılır.
+
+Eğer köşeli parantez içine yazdığın anahtar sözlükte yoksa, yeni bir kayıt oluşturulur.
+
+Eğer o anahtar zaten varsa, eski değer silinir ve üzerine yenisi yazılır.
+
+37.2 Varlık Kontrolü (in Operatörü):
+Bir sözlükten veri çekmeye çalışmadan önce, o anahtarın sözlükte olup olmadığını kontrol etmek sistemin hata verip çökmesini engeller. Bu işlem True veya False değer döner.
+
+37.3 Uygulamalı Örnek:
+yazilimci = {
+    "isim": "Dawut",
+    "hedef": "Backend"
+}
+
+# 1. EKLEME: Sözlükte olmayan bir anahtar ekleyelim
+yazilimci["sehir"] = "Berlin" 
+print(f"Ekleme Sonrası: {yazilimci['isim']} artık {yazilimci['sehir']} şehrinde.")
+
+# 2. GÜNCELLEME: Mevcut bir anahtarın değerini değiştirelim
+yazilimci["hedef"] = "Senior Backend Developer"
+print(f"Güncelleme Sonrası Yeni Hedef: {yazilimci['hedef']}")
+
+# 3. KONTROL: Anahtar sözlükte mi?
+if "yas" in yazilimci:
+    print(f"Yaş Bilgisi: {yazilimci['yas']}")
+else:
+    print("Uyarı: Sözlükte yaş bilgisi bulunamadı!")
+
+# f-string içinde doğrudan kontrol kullanımı
+print(f"Uzmanlık bilgisi var mı?: {'hedef' in yazilimci}")
+```
+##### --- UPDATE() CLEAR()--[38.0-38.7]
+###### --- UPDATE()
+```PY
+38.0 Sözlüklerde .update() Metodu
+38.1 Nedir: Bir sözlüğe başka bir sözlüğü veya anahtar-değer çiftlerinden oluşan bir grubu (tuple gibi) tek seferde ekleme işlemidir.
+
+38.2 Kurallar:
+
+sozluk.update({"anahtar": "deger"}) şeklinde kullanılır.
+
+Toplu İşlem: Birden fazla veriyi tek satırda güncelleyebilirsin.
+
+Üstüne Yazma: Eğer eklemeye çalıştığın anahtar zaten sözlükte varsa, eski değer silinir ve yeni değer onun yerini alır.
+
+38.3 Uygulamalı Örnek (Terminal Güvenlik Güncellemesi):
+# Mevcut terminal durumu
+terminal_verisi = {
+    "bolge": "Terminal-A",
+    "guvenlik_seviyesi": "Orta",
+    "aktif_personel": 5
+}
+
+print(f"Sistem Baslatiliyor... Mevcut Durum: {terminal_verisi['guvenlik_seviyesi']}")
+
+# Birden fazla veriyi ayni anda guncelleme (update)
+terminal_verisi.update({
+    "guvenlik_seviyesi": "Yüksek", # Guncellendi
+    "ek_onlem": "Lazer bariyerler", # Yeni eklendi
+    "aktif_personel": 12            # Guncellendi
+})
+
+print(f"\n--- GÜNCELLEME TAMAMLANDI ---")
+print(f"Yeni Seviye: {terminal_verisi['guvenlik_seviyesi']}")
+print(f"Ek Onlem: {terminal_verisi['ek_onlem']}")
+print(f"Toplam Personel: {terminal_verisi['aktif_personel']}")
+```
+###### --- CLEAR() ---
+```PY
+38.4 Sözlüklerde .clear() Metodu
+38.5 Nedir: Bir sözlüğün içindeki tüm verileri silerek sözlüğü tamamen boş hale getiren metottur.
+
+38.6 Kurallar:
+
+sozluk.clear() şeklinde kullanılır.
+
+Sonuç: İşlemden sonra sözlük {} (boş sözlük) haline gelir.
+
+del ile Farkı: del sozluk dersen sözlük değişkeni tamamen yok olur ve ona bir daha erişemezsin (hata alırsın). Ancak .clear() dersen sözlük "boş bir kutu" olarak kalmaya devam eder, içine tekrar veri ekleyebilirsin.
+
+38.7 Uygulamalı Örnek (Kanıt Temizleme Senaryosu):
+kanitlar = {
+    "lokasyon": "Depo-7",
+    "parmak_izi": "Bulundu",
+    "dosya_no": 9982
+}
+
+print(f"Baskın Öncesi Kanıt Sayısı: {len(kanitlar)}")
+
+# Tüm verileri tek seferde temizle
+kanitlar.clear()
+
+print("--- SISTEM SIFIRLANDI ---")
+print(f"Mevcut Kanıt Durumu: {kanitlar}") # Çıktı: {}
+
+# Sözlük hala yaşıyor, yeni veri ekleyebiliriz
+kanitlar["durum"] = "Temiz"
+print(f"Yeni Kayıt: {kanitlar}")
+```
+
+# --- CODEX PYTHON: BIRINCI SEZON --- 
+## --- BIRINCI KISIM --- [01.01.2026-00.03.2026]
 ### --- I BOLUM: TEMEL_DEGISKENLER --- [26.01.2026-30.01.2026]
 #### --- PRINT,INPUT,INT,STR --- [26.01.2026] ---
 ##### --- ilk bolum
@@ -1149,7 +1631,7 @@ graph TD
         D4 --> E4[Len: Parcacik Sayisi]
     end
 ```
-### --- III BOLUM:DONGULER --- [09.02.2026-13.02.2026]
+### --- III BOLUM: KONTROL_AKISI VE KOSULLU_IFADELER --- [09.02.2026-14.02.2026]
 #### --- IF,ELIF,ELSE,AND/OR --- [09.02.2026]
 ##### --- ilk karmasik bolum
 ```py
@@ -1434,7 +1916,6 @@ graph TD
     Q2 -- ">= 50.000€" --> Approved[Blue Kart Onaylandı!]
     Q2 -- "40.000€ - 50.000€" --> Review[Ek inceleme yapılmalı]
     Q2 -- "< 40.000€" --> WorkVisa[Çalışma vizesi ile gidiş]
-
 ```
 #### --- CARSAMBA GUNU TELAFI IF,ELIF,ELSE,NESTED IF --- [14.02.2026]
 ##### --- ilk bolum
@@ -1546,4 +2027,511 @@ graph TD
     Check -- "Sıfır (0)" --> FalseNode[FALSE]
     TrueNode --> ActionT[Döngü Devam Eder]
     FalseNode --> ActionF[Döngü Durur]
+```
+### --- IV BOLUM: DONGULER --- [16.02.2026-21.02.2026] 
+#### --- FOR IN RANGE --- [16.02.2026_and_17.02.2026]
+##### --- ilk bolum 
+```py
+#while dongusu
+sayi = 10
+while sayi >= 0:
+    print(f"sayi: {sayi}")
+    sayi = sayi - 1
+print("bitdi")
+
+# for dongusu
+listeler = ["karpuz", "elma", "cilek", "ananas"]
+for liste in listeler:
+    print(f"meyveler: {liste}")
+
+if liste == "cilek":
+        print(f"meyveler: {liste} - Bu benim en sevdiğim!")
+    else:
+        print(f"meyveler: {liste}")
+```
+##### --- ikinci bolum
+```py
+#for dongusu
+sayilar = [5, 12, 8, 20, 3, 15, 30]
+
+for sayi in sayilar:
+    if sayi > 10:
+        print(f"buyuk sayi {sayi}")
+    else:
+        print(f"kucuk sayi {sayi}")
+
+#while dongusu
+while True:
+    komut = input("donguyu kapatmak istiyorsaniz 'kapat' diyin: ")
+
+    if komut == 'kapat':
+        break
+
+print("dongu kapatildi")
+```
+##### --- ucuncu bolum
+```py
+# for birincisi
+sayi = 0
+
+for sayi in range(0, 21, 2):
+    print(f"{sayi} cift sayilar")
+
+#for ikincisi
+
+uyeler = ["Dawut", "Gus", "Jesse", "Walter", "Skyler"]
+kisi = "Walter"
+for kisi in uyeler:
+    if kisi == "Walter":
+        print("walter iceri girmeye calisiyor engelleyin")
+    else:
+        print(f"hos geldiniz {kisi} iceri girin")
+
+#for ucuncusu
+
+toplam = 20
+
+for gun in range(1, 5):
+    toplam = toplam + 5
+    print(f"{gun} gun sonra ve 5 lira yatirildiginda para {toplam} ")
+
+print(f"{gun} sonunda mevcut para {toplam}")
+```
+##### --- sablon ilk bolum
+```mermaid
+graph TD
+    A[Başla: Üyeler Listesi] --> B(Sıradaki Üyeyi Al)
+    B --> C{Üye == 'Walter'?}
+    C -- Evet --> D[Engelleme Mesajı Yazdır]
+    C -- Hayır --> E[Hoş Geldiniz Mesajı Yazdır]
+    D --> F{Liste Bitti mi?}
+    E --> F
+    F -- Hayır --> B
+    F -- Evet --> G[Bitti]
+```
+##### --- sablon ikinci bolum
+```mermaid
+graph TD
+    A[Sonsuz Döngüye Gir: True] --> B[/Kullanıcıdan Komut Al/]
+    B --> C{Komut == 'kapat'?}
+    C -- Evet --> D[break: Döngüyü Kır]
+    C -- Hayır --> B
+    D --> E[Döngüden Çık ve 'Kapatıldı' Yazdır]
+```
+#### --- FOR CONTINUE BREAK --- [18.02.2026_and_19.02.2026]
+##### --- ilk bolum
+```py
+for sayi in range(1, 16):
+    if sayi != 7:
+        print(f"sayi: {sayi}")
+        continue
+```
+##### --- ikinci bolum
+```py
+stoklar = [15, 20, 5, 0, 10, 30]
+
+for stok in stoklar:
+    if stok == 0:
+        break
+    print(f"stoklardaki mevcut sayi {stok}")
+```
+##### --- ucuncu bolum
+```py
+veriler = [100, 200, "HATA", 300, "VIRUS", 400, 500]
+
+for veri in veriler:
+    if veri == "HATA":
+        continue
+    if veri == "VIRUS":
+        break
+
+    print(f"veriler isleniyor {veri}")
+```
+##### --- dorduncu bolum
+```py
+kuyruk_q = ["Sivil_1", "HATA", "Diplomat", "KACAKCI", "Sivil_2", "Sivil_3", "Sivil_4", "BOMBACI", "Sivil_5"]
+for kuyruk_a in kuyruk_q:
+    
+    if kuyruk_a == "HATA":
+        continue
+    
+    if kuyruk_a == "Diplomat":
+        print(f"ust yetkili bolgesne gonderiliyorsunuz! {kuyruk_a} bey")
+
+    if kuyruk_a == "KACAKCI":
+        print(f"Giris reddedildi suphel sahis {kuyruk_a}")
+        continue
+
+    if kuyruk_a == "BOMBACI":
+        print("GUVENLIK AYARI SISTEM KAPATILDI")
+        break
+
+    print(f"kuyruktaki sahis {kuyruk_a}")
+```
+##### --- ilk sablon bolum
+```mermaid
+graph TD
+    A[Başla: Kuyruk Listesi] --> B(Sıradaki Kişiyi Al: kuyruk_a)
+    B --> C{kuyruk_a == 'HATA'?}
+    C -- Evet: continue --> B
+    C -- Hayır --> D{kuyruk_a == 'Diplomat'?}
+    D -- Evet --> E[Üst Yetkili Bölgesine Gönder]
+    E --> I
+    D -- Hayır --> F{kuyruk_a == 'KACAKCI'?}
+    F -- Evet: continue --> G[Giriş Reddedildi Yazdır]
+    G --> B
+    F -- Hayır --> H{kuyruk_a == 'BOMBACI'?}
+    H -- Evet: break --> J[SİSTEM KAPATILDI]
+    H -- Hayır --> I[Sahıs Kabul Edildi Yazdır]
+    I --> K{Kuyruk Bitti mi?}
+    K -- Hayır --> B
+    K -- Evet --> L[Bitti]
+    J --> L
+```
+#### --- BREAK FOR RANGE --- [20.02.2026_and_21.02.2026]
+##### --- ilk bolum
+```py
+ Bina_A = ["Kat_1", "Kat_2"]
+
+for Bina_B in Bina_A:
+    print(f"suanki bina {Bina_B}")
+
+    for Bina_C in range(1, 4):
+        print(f"{Bina_B} - {Bina_C}")
+```
+##### --- ikinci bolum
+```py
+gunler = ["Pazartesi", "Sali"]
+saatler = ["Sabah", "Aksam"]
+for gun in gunler:
+    for saat in saatler:
+        if gun == "Sali" and saat == "Aksam":
+            print(f"{gun} ve {saat} dolasiyla vardiya bitdi sinir kapisi kapatildi")
+        else:
+            print(f"{gun} ve {saat} kaydi yapildi")
+```
+##### --- ucuncu bolum
+```py
+bulundu = False
+
+for x in range(4):
+        print(f"Koordinat: ({x}, {y})")
+        
+        if x == 2 and y == 2: 
+            print(f"--- HEDEF BULUNDU ({x},{y}) ---")
+            bulundu = True
+            break
+            
+    if bulundu:
+        print("Sistem tamamen kapatiliyor...")
+        break
+```
+##### --- dorduncu bolum
+```py
+
+Crazy_8_bulundu = False
+
+for evler in range(1, 4):
+    for odalar in range(1, 3):
+        print(f"ev ve odalar kontrol ediliyor ({evler}, {odalar})")
+
+        if evler == 2 and odalar == 1:
+            print(f"HIRSIZ BULUNDU ! ({evler}, {odalar}) Bolgede Yakalandi")
+            Crazy_8_bulundu = True
+            break
+    if Crazy_8_bulundu == True:
+        print("Operasyon Sonlaniyor")
+        break
+```
+##### --- besinci bolum 
+```py
+dogru_sifre = "2025"
+girilen_sifre = ""
+
+
+while girilen_sifre != dogru_sifre:
+    girilen_sifre = input("Sifreyi girin: ")
+    
+    if girilen_sifre != dogru_sifre:
+        print("Sifre tekrar yazin")
+    else:
+        print("Sifre dogru sistem tamamen acildi")
+    
+sistem_aktif = True
+kamyonlar = ["Kamyon_1", "Kamyon_2", "Kamyon_3"]
+icerik = ["Normal", "KACAKCI", "Normal", "BOMBACI", "Normal"]
+
+for kamyon in kamyonlar:
+    if not sistem_aktif:
+        break
+    for koli in icerik:
+        print(f"{kamyon} ve koli {koli} taraniyor...")
+        if koli == "KACAKCI":
+            print(F"DIKKAT: {kamyon} daki koli {koli} bulundu denetim aranma yapiliyor")
+        elif koli == "BOMBACI":
+            print("UYARI SISTEM KAPANIYOR !")
+            sistem_aktif = False
+            break
+```
+##### --- ilk sablon bolum
+```mermaid
+graph TD
+    Start([Dış Döngü Başla]) --> Inner([İç Döngü Başla])
+    Inner --> Check{Hedef Bulundu mu?}
+    Check -- Evet --> Flag[Bayrak = True]
+    Flag --> Break1[İç Döngüyü Kır: break]
+    Break1 --> OuterCheck{Bayrak True mu?}
+    Check -- Hayır --> Inner
+    OuterCheck -- Evet --> Break2[Dış Döngüyü Kır: break]
+    OuterCheck -- Hayır --> Start
+    Break2 --> End([Operasyon Bitti])
+```
+### --- V BOLUM: SOZLUKLER --- [23.02.2026-27.02.2026]
+#### --- KEY {} VALUE [] --- [23.01.2026]
+##### --- ilk bolum
+```py
+yolcu = {
+    "ad": "Dawut",
+    "soyad": "Gociyew",
+    "pasaport_no": "123456",
+    "yas": "16"
+}
+
+print(yolcu["ad"])
+print(yolcu["pasaport_no"])
+```
+###### --- ilk bolum gelistirilmis hali 
+```py
+yolcu = {
+    "ad": "Dawut",
+    "soyad": "Gociyew",
+    "pasaport_no": "123456",
+    "yas": "16"
+}
+
+print(f"Yolcu adi: {yolcu['ad']} | pasaport {yolcu['pasaport_no']}")
+```
+##### --- ikinci bolum
+```py
+yolcu = {
+    "ad": "Dawut",
+    "soyad": "Gociyew",
+    "pasaport_no": "123456",
+    "yas": "16"
+}
+
+print(f"Yolcu adi: {yolcu['ad']} | pasaport {yolcu['pasaport_no']}")
+print(f"Yolcunun eski yasi {yolcu['yas']}")
+yolcu["yas"] = 19
+
+yolcu["ulke"] = "Turkmenistan"
+
+print(f"yolcunun yeni yasi {yolcu['yas']}  | suanki yasadigi ulke {yolcu['ulke']} ")
+```
+##### --- ucuncu bolum
+```py
+yolcu_kart = {
+    "ad": "Walter",
+    "bagaj_kg": 20,
+    "vize": False,
+}
+
+print(f"yolcunun ismi {yolcu_kart['ad']} ve bagaj kg {yolcu_kart['bagaj_kg']}")
+
+yolcu_kart["bagaj_kg"] += 5
+
+yolcu_kart["kontrol_noktasi"] = "Terminal-A"
+
+
+print(f"Yolcunun guncel adi {yolcu_kart['ad']} bagacin agrami {yolcu_kart['bagaj_kg']} ve bulundugu terminal {yolcu_kart['kontrol_noktasi']}") 
+
+yolcu_kart ["yeni_kisi"] = "Pinkman"
+
+yolcu_kart ["kamera_sistemi"] = "Terminal-A_1294"
+print(f"{yolcu_kart['ad']} yanindaki sahis {yolcu_kart['yeni_kisi']} terminalin yanindaki {yolcu_kart['kamera_sistemi']} yanindaki kameradan kayitlara karismistir ")
+```
+##### --- dorduncu bolum
+```py
+yolcu_kart = {
+    "ad": "Walter",
+    "bagaj_kg": 20,
+    "vize": False,
+}
+
+print(f"yolcunun ismi {yolcu_kart['ad']} ve bagaj kg {yolcu_kart['bagaj_kg']}")
+
+yolcu_kart["bagaj_kg"] += 5
+
+yolcu_kart["kontrol_noktasi"] = "Terminal-A"
+
+
+print(f"Yolcunun guncel adi {yolcu_kart['ad']} bagacin agrami {yolcu_kart['bagaj_kg']} ve bulundugu terminal {yolcu_kart['kontrol_noktasi']}") 
+
+yolcu_kart["yeni_kisi"] = "Pinkman"
+
+yolcu_kart["kamera_sistemi"] = "Terminal-A_1294"
+print(f"{yolcu_kart['ad']} yanindaki sahis {yolcu_kart['yeni_kisi']} terminalin yanindaki {yolcu_kart['kamera_sistemi']} yanindaki kameradan kayitlara karismistir ")
+
+yolcu_kart["???"] = "___"
+
+print(f"Walter ve yanindaki sahis pinkmandan sonra {yolcu_kart['???']}k gecmistir kendisi Walter bacanagi oldugu dusunulmekte kamera kaydi {yolcu_kart['kamera_sistemi']} kayiplara karisilmistir")
+```
+##### --- ilk sablon bolum
+```mermaid
+graph TD
+    A[Başla: yolcu Sözlüğü] --> B[Eski Yaşı Yazdır: 16]
+    B --> C["Güncelleme: yolcu['yas'] = 19"]
+    C --> D["Ekleme: yolcu['ulke'] = 'Turkmenistan'"]
+    D --> E[f-string ile Yeni Verileri Yazdır]
+    E --> F[Bitti]
+```
+##### --- ikinci sablon bolum
+```mermaid
+graph TD
+    A[Başla: yolcu_kart 'Walter'] --> B[Mevcut Bilgileri Yazdır]
+    B --> C["Artırma: bagaj_kg += 5"]
+    C --> D["Ekleme: 'kontrol_noktasi' = 'Terminal-A'"]
+    D --> E["Ekleme: 'yeni_kisi' = 'Pinkman'"]
+    E --> F["Ekleme: 'kamera_sistemi' = 'Terminal-A_1294'"]
+    F --> G["Ekleme: '???' = '___'"]
+    G --> H[Final Senaryosunu f-string ile Yazdır]
+    H --> I[Bitti]
+```
+#### --- POP() GET() DEL() --- [25.01.2026]
+##### --- ilk bolum
+```py
+iste gemini
+
+envanter = {
+    "Urun": "Mavi kristal",
+    "Miktar": "50 Gram",
+    "lokasyon": "Karavan",
+}
+
+print("--- BILGILER GUNCELLENIYOR ---")
+
+for deger, miktar in envanter.items():
+    print(f"bilgiler araniyor {deger}  {miktar}")
+print("UYARI HANK KAYITLARA BAKMAYA CALISIYOR")
+envanter["Miktar"] = "100 Gram"
+print("")
+if "lokasyon" in envanter:
+
+    del envanter["lokasyon"]
+
+print("\n [UYARI] KAYITLAR SILINIYOR")
+
+print(f"suan {envanter['Urun']} var ve miktar olarak {envanter['Miktar']} kadar gram var ")
+
+print("Hank durumu anlamadi ama birakmayacak kotu tarafi mike jessie ariyor")
+```
+##### --- ikinci bolum
+```py
+yolcu = {
+    "isim": "Saul",
+    "vize": "Var",
+}
+
+yas_bilgisi = yolcu.get("Yas", "Bilgisi kayitli degil")
+print(f"Kullnanici yas bilgisi {yas_bilgisi}")
+
+if "vize" in yolcu:
+    silinen_sey = yolcu.pop("vize")
+    print("uzgunuz ama vizeniz iptal edildi")
+
+print(f"bay {yolcu['isim']} suan vizeniz iptal edildi geri donmek zorundasiniz")
+```
+##### --- ilk sablon bolum
+```mermaid
+graph TD
+    A[Başla: yolcu Sözlüğü Tanımlandı] --> B["yolcu.get('Yas') Kontrolü"]
+    B --> C{Yaş Bilgisi Var mı?}
+    C -- Hayır --> D[Varsayılan Mesajı Ata: 'Bilgisi kayıtlı değil']
+    C -- Evet --> E[Yaş Değerini Ata]
+    D --> F[Yaş Bilgisini Yazdır]
+    E --> F
+    F --> G{"'vize' in yolcu? (Kontrol)"}
+    G -- Evet --> H["yolcu.pop('vize') (Sil ve Değeri Al)"]
+    H --> I[İptal Mesajını Yazdır]
+    G -- Hayır --> J[Son Durumu Yazdır]
+    I --> J[Bay Saul Geri Dönmek Zorundasınız]
+    J --> K[Bitti]
+```
+#### --- UPDATE() CLEAR() --- [27.01.2026]
+##### --- ilk bolum
+```py
+jessi_evi = {
+    "evdeki_konak": "Walter",
+    "mavi_stok": 500,
+}
+
+yeni_bilgiler = {
+    "evin_sahibi": "Jessi",
+    "lokasyon": "Colbuquerque",
+    "durum": "Gizli"
+}
+
+jessi_evi.update(yeni_bilgiler)
+
+jessi_evi["evdeki_konak"] = "Asci"
+guvenlik_seviyesi = jessi_evi.get("guvenlik", "Güvenlik seviyesi atanmamiş")
+print(f"gecici olarak {guvenlik_seviyesi}")
+if "lokasyon" in jessi_evi:
+    silinen_lokasyon = jessi_evi.pop("lokasyon")
+    print(f"{silinen_lokasyon} lokasyon silindi nerede oldugu bilinmiyor")
+
+print(f"guvenlik durum suan {yeni_bilgiler['durum']} hadi {jessi_evi['evdeki_konak']} biraz met yapalim")
+
+jessi_evi["evdeki_konak"] = "Walter White"
+yeni_bilgiler["evin_sahibi"] = "Jessie Pinkman"
+
+print(f" mike elindeki kayitli bilgiler {jessi_evi}")
+```
+##### --- ikinci bolum
+```py
+jessi_evi = {
+    "evdeki_konak": "Walter",
+    "mavi_stok": 500,
+}
+
+yeni_bilgiler = {
+    "evin_sahibi": "Jessi",
+    "lokasyon": "Colbuquerque",
+    "durum": "Gizli"
+}
+
+jessi_evi.update(yeni_bilgiler)
+
+jessi_evi["evdeki_konak"] = "Asci"
+guvenlik_seviyesi = jessi_evi.get("guvenlik", "Güvenlik seviyesi atanmamiş")
+print(f"gecici olarak {guvenlik_seviyesi}")
+if "lokasyon" in jessi_evi:
+    silinen_lokasyon = jessi_evi.pop("lokasyon")
+    print(f"{silinen_lokasyon} lokasyon silindi nerede oldugu bilinmiyor")
+
+print(f"guvenlik durum suan {yeni_bilgiler['durum']} hadi {jessi_evi['evdeki_konak']} biraz met yapalim")
+
+jessi_evi["evdeki_konak"] = "Walter White"
+yeni_bilgiler["evin_sahibi"] = "Jessie Pinkman"
+
+print(f" mike elindeki kayitli bilgiler {jessi_evi}")
+
+jessi_evi.clear()
+print(f"Mike kanitlari yok etdi: {jessi_evi}")
+print(f"dis bilgi hala duruyormu: {yeni_bilgiler}")
+```
+##### --- ilk sablon bolum
+```mermaid
+graph TD
+    Start([Başla]) --> Define[Sözlükler Tanımlandı: jessi_evi ve yeni_bilgiler]
+    Define --> Update["jessi_evi.update(yeni_bilgiler)"]
+    Update --> Change["evdeki_konak = 'Asci'"]
+    Change --> Get["guvenlik_seviyesi = .get('guvenlik')"]
+    Get --> Check{lokasyon anahtarı var mı?}
+    Check -- Evet --> Pop["silinen_lokasyon = .pop('lokasyon')"]
+    Check -- Hayır --> Print[Bilgileri Yazdır]
+    Pop --> Print
+    Print --> FinalUpdate["Veriler Son Kez Güncellendi"]
+    FinalUpdate --> Clear["jessi_evi.clear()"]
+    Clear --> End([Bitti: Kanıtlar Yok Edildi])
 ```
