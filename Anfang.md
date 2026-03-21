@@ -1,10 +1,15 @@
-# --- PYTHON ÇEVRİMDIŞI EL KİTABI ---
+# --- BIRINCI DONEM PYTHON ÇEVRİMDIŞI EL KİTABI ---
 ## --- PYTHON BASLAYIP BITIRME PLANI ---
-1--Bölüm 2--Tahmini Süre 3--Odak Noktası 4--Neden Önemli?
+1. --Bölüm 2--Tahmini Süre 3--Odak Noktası 4--Neden Önemli?
 1.1 Kısım: Temeller	5 - 7 Hafta	Döngüler, Karar Yapıları, Fonksiyonlar.	 Bu kısım senin temelin. Burası ne kadar sürerse sürsün (ister 5 ister 7 hafta), tam oturmadan geçmeyeceğiz.
 2. Kısım: Profesyonellik	8 - 10 Hafta	OOP (Nesne Yönelimli Programlama), Hata Yönetimi, Dosyalar.	Backend'in kalbi burasıdır. Karmaşık sistemleri yönetmeyi burada öğreneceksin.
 3. Kısım: Uzmanlık & Veri	12 - 14 Hafta	SQL, Veritabanları, API Mantığı ve Projeler.	Bilgiyi kalıcı hale getirip gerçek dünya uygulamalarına döktüğün yer.
 
+Dönem,Odak Noktası,Hedef
+Temmuz 2026,Python & Algoritma,Temeli Çelik Gibi Yapmak
+Kasım 2026,SQL & Veritabanı,Verinin Kalbine İnmek
+Eylül 2027,Java & Spring Boot,Almanya Bileti (En Kritik Aşama)
+Ocak 2028,Linux & Docker,Sistem Altyapısı (DevOps Giriş)
 ## --- KUCUK GIRIS VE BILGI ---
 ### --- PYTHON'IN MANTIĞI VE ÇALIŞMA SİSTEMİ --- [0.1.0-0.1.9]
 ```PY
@@ -1247,8 +1252,157 @@ print(f"Mevcut Kanıt Durumu: {kanitlar}") # Çıktı: {}
 kanitlar["durum"] = "Temiz"
 print(f"Yeni Kayıt: {kanitlar}")
 ```
+##### --- NESTED DICTIONARIES{SOZLUKLER}--[39.0-39.4]
+```PY
+39.0 Nested Dictionaries (İç İçe Sözlükler)
+39.1 Nedir: Bir sözlüğün içindeki bir "anahtarın" (key), değer (value) olarak başka bir sözlüğü tutmasıdır. Bu yapı, verileri kategorize etmek ve hiyerarşik bir düzen kurmak için kullanılır.
 
-# --- CODEX PYTHON: BIRINCI SEZON --- 
+39.2 Kurallar:
+
+Derinlik: İstediğin kadar iç içe sözlük açabilirsin (sözlük içinde sözlük, onun içinde başka bir sözlük...).
+
+Erişim: İçteki verilere ulaşmak için ardı ardına köşeli parantez [][] kullanılır.
+
+Benzersizlik: Her seviyedeki anahtarlar kendi içinde benzersiz olmalıdır.
+
+39.3 Uygulamalı Örnek (Backend Kullanıcı Yönetimi):
+# Bir yazılım şirketindeki çalışanların veritabanı gibi düşün
+sirket = {
+    "calisan_1": {
+        "ad": "Dawut",
+        "rol": "Backend Developer",
+        "diller": ["Python", "Java"]
+    },
+    "calisan_2": {
+        "ad": "Jessie",
+        "rol": "DevOps",
+        "diller": ["Go", "Docker"]
+    }
+}
+
+# 1. Veriye Erişme
+print(f"1. Çalışan Adı: {sirket['calisan_1']['ad']}") # Çıktı: Dawut
+
+# 2. Veri Güncelleme
+sirket["calisan_2"]["rol"] = "Senior DevOps"
+
+# 3. Yeni İç Sözlük Ekleme
+sirket["calisan_3"] = {"ad": "Walter", "rol": "Architect"}
+
+print(f"Güncel Rapor: {sirket['calisan_2']['ad']} artık bir {sirket['calisan_2']['rol']}.")
+
+39.4 İç İçe Sözlüklerde İşlemler ve f-string
+İç içe yapılarda f-string kullanırken tırnak işaretlerine ekstra dikkat etmeli
+İşlem,Kod Yazımı,Açıklama
+Derin Erişim,"sozluk[""dis""][""ic""]",Katman katman içeri girer.
+Güvenli Erişim,"sozluk.get(""dis"").get(""ic"")",Dıştaki anahtar yoksa hata vermez.
+Silme,"del sozluk[""dis""][""ic""]",Sadece içteki belirli bir veriyi siler.
+```
+##### --- LIST[] DICTIONARIES[SOZLUKLER]--[40.0-40.4]
+```PY
+40.0 List of Dictionaries (Liste İçinde Sözlükler)
+40.1 Nedir: Birden fazla sözlük objesinin tek bir liste ([]) içerisinde toplanmasıdır. Bu yapı, aynı özelliklere sahip (ad, para, id vb.) birden fazla varlığı (yolcular, ürünler, öğrenciler) yönetmek için kullanılır.
+
+40.2 Temel Avantajları:
+
+Düzen: Her sözlük tek bir kişiyi temsil eder.
+
+Dinamiklik: append() ile yeni bir sözlük (kişi) eklenebilir.
+
+Analiz: for döngüsü ile tüm liste taranıp şartlı işlemler (if-else) yapılabilir.
+
+40.3 Uygulamalı Örnek (Karakter Veritabanı):
+# 1. Başlangıç Listesi
+yolcular = [
+    {"isim": "Mike", "para": 10000}
+]
+
+# 2. Yeni Kayıtlar Ekleme (Backend Simülasyonu)
+yolcular.append({"isim": "Gus", "para": 50000}) 
+yolcular.append({"isim": "Walter", "para": 22000})
+
+# 3. Veri Analizi ve Raporlama
+print("--- GÜVENLİK SORGULAMASI BAŞLADI ---")
+
+for yolcu in yolcular:
+    # İç içe tırnak kuralına dikkat! (Dışta çift, içte tek)
+    if yolcu["para"] >= 30000:
+        print(f"BİLDİRİM: {yolcu['isim']} yüksek risk grubunda! (Bakiye: {yolcu['para']})")
+    else:
+        print(f"BİLDİRİM: {yolcu['isim']} bakiyesi normal seviyede. (Bakiye: {yolcu['para']})")
+
+40.4 Veri Erişimi ve Manipülasyon Tablosu
+Listenin içindeki sözlüklere ulaşmak için önce indeks, sonra anahtar kullanılır.
+İşlem,Örnek Kod,Açıklama
+İlk Kişiye Ulaşma,yolcular[0],Listenin ilk elemanı olan sözlüğü verir.
+İçeriğe Ulaşma,"yolcular[1][""isim""]",2. kişinin ismine ulaşır (Gus).
+Veri Değiştirme,"yolcular[2][""para""] += 500",Walter'ın parasına 500 ekler.
+Yeni Kişi Ekleme,yolcular.append({...}),Listenin sonuna yeni bir sözlük ekler.
+```
+
+
+
+#### --- [FONKSIYONLAR] --- {VI-KISIM}
+##### --- DEF--[41.0-41.3]
+```PY
+41.0 Fonksiyonlar (Def: Define)
+41.1 Nedir: Belirli bir işi yapmak üzere bir araya getirilmiş kod bloklarıdır. Bir fonksiyonu bir kez yazarsın, sonra ihtiyaç duydukça binlerce kez çağırırsın. Bu, yazılımda "DRY" (Don't Repeat Yourself - Kendini Tekrar Etme) prensibinin temelidir.
+
+41.2 Kurallar:
+
+Tanımlama: def anahtar kelimesi ile başlar.
+
+İsimlendirme: Fonksiyon isimleri küçük harfle başlar ve ne işe yaradığı belli olmalıdır (hesapla, kaydet, gonder).
+
+Parametreler: Parantez () içine, fonksiyonun çalışması için gereken dış bilgileri (değişkenleri) yazarsın.
+
+Çağırma: Tanımlanan fonksiyonu kullanmak için fonksiyon_adi() şeklinde çağırmalısın.
+
+41.3 Uygulamalı Örnek (Operasyonel Fonksiyon):
+# Fonksiyonu tanımlıyoruz (Sadece tarif)
+def rapor_yazdir(isim, miktar):
+    print(f"[RAPOR] {isim} adlı kişi tarafından {miktar} miktar madde işlendi.")
+
+# Fonksiyonu çağırıyoruz (Tarifi uyguluyoruz)
+rapor_yazdir("Walter", 50000)
+rapor_yazdir("Gale", 12000)
+```
+Bölüm,Görev
+def,Fonksiyonu başlatır.
+parantez(),Dışarıdan gelecek verileri (parametre) bekler.
+:,Fonksiyon gövdesini başlatır.
+indentation,Fonksiyona ait kodlar içe (4 boşluk) yazılır.
+##### --- RETURN--[42.0-42.3]
+```PY
+42.0 Fonksiyonlarda return
+42.1 Nedir: Bir fonksiyonun çalışması bittikten sonra, çağıran yere bir değer (cevap) göndermesidir. Fonksiyon bir fabrikaysa, return o fabrikanın ürettiği nihai üründür.
+
+42.2 Kurallar:
+
+Fonksiyonu Bitirir: Bir fonksiyonda return satırı çalıştığı anda fonksiyon o saniyede durur; altındaki kodlar okunmaz.
+
+Değeri Yakalama: return ile gelen cevabı bir değişkene eşitleyebilirsin.
+
+Çoklu Kullanım: Bir fonksiyon içinde birden fazla return olabilir (genellikle if-else yapılarında), ancak sadece bir tanesi çalışır.
+
+42.3 Uygulamalı Örnek (Komisyon Hesaplama):
+def net_kazanc_hesapla(toplam_para, komisyon_orani):
+    kesinti = toplam_para * (komisyon_orani / 100)
+    net_tutar = toplam_para - kesinti
+    return net_tutar # Sonucu paketleyip dışarı gönderiyoruz
+
+# Fonksiyonu çağır ve dönen cevabı bir değişkene ata
+saul_kazanci = net_kazanc_hesapla(10000, 20) 
+
+print(f"Saul'un eline geçen net para: {saul_kazanci}") 
+# Eğer print kullansaydık bu veriyi başka bir hesaplamada kullanamazdık.
+Özellik,print(),return
+Amaç,Sadece ekranda bilgi göstermek.,Bir değeri hafızada tutmak/iletmek.
+Etki,Programın geri kalanını etkilemez.,Programın akışında veri olarak kullanılır.
+Süreklilik,Veri ekranda kalır ama uçup gider.,Veri bir değişkene atanabilir.
+```
+
+# --- CODEX PYTHON: BIRINCI DONEM --- 
 ## --- BIRINCI KISIM --- [01.01.2026-00.03.2026]
 ### --- I BOLUM: TEMEL_DEGISKENLER --- [26.01.2026-30.01.2026]
 #### --- PRINT,INPUT,INT,STR --- [26.01.2026] ---
@@ -2286,9 +2440,10 @@ graph TD
     OuterCheck -- Hayır --> Start
     Break2 --> End([Operasyon Bitti])
 ```
-### --- V BOLUM: SOZLUKLER --- [23.02.2026-27.02.2026]
-#### --- KEY {} VALUE [] --- [23.01.2026]
-##### --- ilk bolum
+### --- V BOLUM: SOZLUKLER --- [23.02.2026-07.02.2026]
+#### --- V_A BOLUM: TEMEL SOZLUKLER --- [23.02.2026-07.02.2026]
+##### --- KEY {} VALUE [] --- [23.01.2026]
+###### --- ilk bolum
 ```py
 yolcu = {
     "ad": "Dawut",
@@ -2299,9 +2454,9 @@ yolcu = {
 
 print(yolcu["ad"])
 print(yolcu["pasaport_no"])
-```
+
 ###### --- ilk bolum gelistirilmis hali 
-```py
+
 yolcu = {
     "ad": "Dawut",
     "soyad": "Gociyew",
@@ -2311,7 +2466,7 @@ yolcu = {
 
 print(f"Yolcu adi: {yolcu['ad']} | pasaport {yolcu['pasaport_no']}")
 ```
-##### --- ikinci bolum
+###### --- ikinci bolum
 ```py
 yolcu = {
     "ad": "Dawut",
@@ -2328,7 +2483,7 @@ yolcu["ulke"] = "Turkmenistan"
 
 print(f"yolcunun yeni yasi {yolcu['yas']}  | suanki yasadigi ulke {yolcu['ulke']} ")
 ```
-##### --- ucuncu bolum
+###### --- ucuncu bolum
 ```py
 yolcu_kart = {
     "ad": "Walter",
@@ -2350,7 +2505,7 @@ yolcu_kart ["yeni_kisi"] = "Pinkman"
 yolcu_kart ["kamera_sistemi"] = "Terminal-A_1294"
 print(f"{yolcu_kart['ad']} yanindaki sahis {yolcu_kart['yeni_kisi']} terminalin yanindaki {yolcu_kart['kamera_sistemi']} yanindaki kameradan kayitlara karismistir ")
 ```
-##### --- dorduncu bolum
+###### --- dorduncu bolum
 ```py
 yolcu_kart = {
     "ad": "Walter",
@@ -2376,7 +2531,7 @@ yolcu_kart["???"] = "___"
 
 print(f"Walter ve yanindaki sahis pinkmandan sonra {yolcu_kart['???']}k gecmistir kendisi Walter bacanagi oldugu dusunulmekte kamera kaydi {yolcu_kart['kamera_sistemi']} kayiplara karisilmistir")
 ```
-##### --- ilk sablon bolum
+###### --- ilk sablon bolum
 ```mermaid
 graph TD
     A[Başla: yolcu Sözlüğü] --> B[Eski Yaşı Yazdır: 16]
@@ -2385,7 +2540,7 @@ graph TD
     D --> E[f-string ile Yeni Verileri Yazdır]
     E --> F[Bitti]
 ```
-##### --- ikinci sablon bolum
+###### --- ikinci sablon bolum
 ```mermaid
 graph TD
     A[Başla: yolcu_kart 'Walter'] --> B[Mevcut Bilgileri Yazdır]
@@ -2397,8 +2552,8 @@ graph TD
     G --> H[Final Senaryosunu f-string ile Yazdır]
     H --> I[Bitti]
 ```
-#### --- POP() GET() DEL() --- [25.01.2026]
-##### --- ilk bolum
+##### --- POP() GET() DEL() --- [25.01.2026]
+###### --- ilk bolum
 ```py
 iste gemini
 
@@ -2425,7 +2580,7 @@ print(f"suan {envanter['Urun']} var ve miktar olarak {envanter['Miktar']} kadar 
 
 print("Hank durumu anlamadi ama birakmayacak kotu tarafi mike jessie ariyor")
 ```
-##### --- ikinci bolum
+###### --- ikinci bolum
 ```py
 yolcu = {
     "isim": "Saul",
@@ -2441,7 +2596,7 @@ if "vize" in yolcu:
 
 print(f"bay {yolcu['isim']} suan vizeniz iptal edildi geri donmek zorundasiniz")
 ```
-##### --- ilk sablon bolum
+###### --- ilk sablon bolum
 ```mermaid
 graph TD
     A[Başla: yolcu Sözlüğü Tanımlandı] --> B["yolcu.get('Yas') Kontrolü"]
@@ -2457,8 +2612,8 @@ graph TD
     I --> J[Bay Saul Geri Dönmek Zorundasınız]
     J --> K[Bitti]
 ```
-#### --- UPDATE() CLEAR() --- [27.01.2026]
-##### --- ilk bolum
+##### --- UPDATE() CLEAR() --- [27.01.2026]
+###### --- ilk bolum
 ```py
 jessi_evi = {
     "evdeki_konak": "Walter",
@@ -2487,7 +2642,7 @@ yeni_bilgiler["evin_sahibi"] = "Jessie Pinkman"
 
 print(f" mike elindeki kayitli bilgiler {jessi_evi}")
 ```
-##### --- ikinci bolum
+###### --- ikinci bolum
 ```py
 jessi_evi = {
     "evdeki_konak": "Walter",
@@ -2520,7 +2675,7 @@ jessi_evi.clear()
 print(f"Mike kanitlari yok etdi: {jessi_evi}")
 print(f"dis bilgi hala duruyormu: {yeni_bilgiler}")
 ```
-##### --- ilk sablon bolum
+###### --- ilk sablon bolum
 ```mermaid
 graph TD
     Start([Başla]) --> Define[Sözlükler Tanımlandı: jessi_evi ve yeni_bilgiler]
@@ -2535,3 +2690,481 @@ graph TD
     FinalUpdate --> Clear["jessi_evi.clear()"]
     Clear --> End([Bitti: Kanıtlar Yok Edildi])
 ```
+#### --- V_B BOLUM: GELISTIRILMIS SOZLUKLER [02.02.2026-07.02.2026]
+##### --- NESTED DICTIONARIES --- [02.03.2026]
+###### --- ilk bolum
+```py
+sehir = {
+    "ev_1": {"isim": "Saul", "para": 10000},
+    "ev_2": {"isim": "Gus", "para": 50000}
+}
+para = sehir["ev_2"]["para"]
+print(f"{sehir['ev_2']['isim']} parasi {para}")
+```
+###### --- ikinci bolum
+```py
+sehir = {
+    "ev_1": {"isim": "Saul", "para": 10000},
+    "ev_2": {"isim": "Gus", "para": 50000},
+}
+
+sokak = {
+    "ev_3": {"isim": "Mike", "para": 30000}
+}
+sehir.update(sokak)
+sehir["ev_1"]["para"] = 25000
+print(f"Saul mike'dan rusvet aldi suanki para {sehir['ev_1']['para']}")
+sehir["ev_3"]["para"] = 15000
+print(f"Mike saul rusvet verdi suanki mevcut para {sehir['ev_3']['para']}")
+
+ev_4 = sehir.get("guvenli ev", "guvenli olmayan ev")
+print(f"malesef {ev_4} bulunamadi ")
+
+
+para_1 = sehir["ev_2"]["para"]
+print(f"{sehir['ev_2']['isim']} parasi {para_1}")
+para_2 = sehir["ev_1"]["para"]
+print(f"{sehir['ev_1']['isim']} parasi rusvet sayesinde {para_2}")
+para_3 = sehir["ev_3"]["para"]
+print(f"{sehir['ev_3']['isim']} parasi saul rusvet verdigi icin {para_3}")
+```
+###### --- ilk sablon bolum
+```mermaid
+graph TD
+    A[Başla: sehir ve sokak Sözlükleri Tanımlandı] --> B["sehir.update(sokak) <br/>(Mike şehre dahil oldu)"]
+    B --> C["Güncelleme: ev_1 (Saul) para = 25000 <br/>(Rüşvet Alındı)"]
+    C --> D["Güncelleme: ev_3 (Mike) para = 15000 <br/>(Rüşvet Verildi)"]
+    D --> E["sehir.get('guvenli ev') Kontrolü"]
+    E --> F{Kayıt Var mı?}
+    F -- Hayır --> G["Varsayılan Değer: 'guvenli olmayan ev'"]
+    F -- Evet --> H[Kayıtlı Değeri Getir]
+    G --> I[f-string ile Güncel Bakiyeleri Yazdır]
+    H --> I
+    I --> J[Sonuç: Saul, Gus ve Mike'ın Paraları Raporlandı]
+    J --> K[Bitti]
+```
+##### --- LIST DICTIONARIES --- [04.03.2026]
+###### --- ilk bolum
+```py
+yolcular = [
+    {"isim": "Mike", "para": 10000}
+]
+
+yolcular.append({"isim": "Gus", "para": 50000}) 
+yolcular.append({"isim": "Walter", "para": 22000})
+
+print(yolcular)
+print(f"Ozel yolcular {yolcular[0]}")
+```
+###### --- ikinci bolum
+```py
+yolcular = [
+    {"isim": "Mike", "para": 10000}
+]
+
+yolcular.append({"isim": "Gus", "para": 50000}) 
+yolcular.append({"isim": "Walter", "para": 22000})
+
+for yolcu in yolcular:
+    if yolcu["para"] >= 30000:
+        print(f"{yolcu['isim']} kisinin {yolcu['para']} fazla meblasi bulunmakta")
+    else:
+        print(f"{yolcu['isim']} kisi ve suanki meblasi {yolcu['para']}")
+```
+###### --- ilk sablon bolum
+```mermaid
+graph TD
+    A[Başla: yolcular Listesi Oluşturuldu] --> B["Listeye Gus ve Walter Eklendi (append)"]
+    B --> C[Döngü: Liste Elemanlarını Tek Tek Al]
+    C --> D{Para >= 30000?}
+    D -- Evet --> E["Ekrana Yaz: Yüksek Meblağ (Gus)"]
+    D -- Hayır --> F["Ekrana Yaz: Normal Meblağ (Mike/Walter)"]
+    E --> G{Başka Yolcu Var mı?}
+    F --> G
+    G -- Evet --> C
+    G -- Hayır --> H[Bitti]
+```
+##### --- BOSS DICTIONARIES --- [06.03.2026]
+###### --- ilk boss bolum
+```py
+kisiler = {
+    "lider": "Mike",
+    "yardimci": "Pinkman",
+    "ek_yardimci": "Tyrus"
+}
+
+laboratuvar_verileri = [
+    {"oda": 101, "calisan": "Walter", "kimyasallar": ["Metilamin", "Asit"], "miktar": 50000},
+    {"oda": 102, "calisan": "Gale", "kimyasallar": ["Sülfür", "Cam Malzeme"], "miktar": 12000},
+    {"oda": 103, "calisan": "Gus", "kimyasallar": ["Fenilasetik_Asit"], "miktar": 85000},
+    {"oda": 104, "calisan": "Saul", "kimyasallar": ["Para"], "miktar": 5000}
+]
+toplam_stok = 0
+for laboratuvar_listesi in laboratuvar_verileri:
+    if laboratuvar_listesi["miktar"] >= 40000:
+        toplam_stok = toplam_stok + laboratuvar_listesi["miktar"]
+        print(F"\n KRITIK: {laboratuvar_listesi['oda']} odada ve {laboratuvar_listesi['miktar']} miktar bulunmakta labaravutari yoneten {laboratuvar_listesi['calisan']} Gus'un adamlari ve {kisiler['lider']} gonderiliyor")
+        if laboratuvar_listesi["calisan"] == "Walter":
+            print(f"{laboratuvar_listesi['oda']} odada {laboratuvar_listesi['calisan']} yonetiyor {kisiler['lider']} yanina destek amacli {kisiler['ek_yardimci']} gonderiliyor ")
+    else:
+        print(F"\n GUVENLI: {laboratuvar_listesi['oda']} oda guvenli gecici olarak {kisiler['yardimci']} gonderiliyor")
+    
+    for kimyasal in laboratuvar_listesi["kimyasallar"]:
+        print(f" --> Bulunan madde: {kimyasal}")
+
+print(f"toplam stok {toplam_stok}")
+```
+###### --- ilk boss sablon bolum
+```mermaid
+graph TD
+    A[Başla] --> B[Verileri Tanımla]
+    B --> C[Döngü: Her Oda İçin]
+    C --> D{Miktar >= 40000?}
+    D -- Evet --> E[Stoğa Ekle & Mike'ı Gönder]
+    E --> F{Çalışan Walter mı?}
+    F -- Evet --> G[Tyrus'u Desteğe Gönder]
+    F -- Hayır --> H[İç Döngü: Kimyasalları Yazdır]
+    D -- Hayır --> I[Pinkman'ı Gönder]
+    G --> H
+    I --> H
+    H --> J{Tüm Odalar Bitti mi?}
+    J -- Hayır --> C
+    J -- Evet --> K[Toplam Stoğu Yazdır & Bitir]
+```
+### --- VI BOLUM: FONKSIYONLAR --- [09.03.2026-27.03.2026]
+#### --- VII_A BOLUM: BASLANGIC FONKSIYONLAR --- [09.03.2026-14.03.2026]
+##### --- DEF UND RETURN (ANFANG) --- [09.03.2026] 
+##### --- ilk bolum
+```py
+def rapor_sistemi(): 
+    print("kimyasallar ayrilistiriliyor")
+    print("amac yapiliyor")
+    print("Walter ve jessi uyusturucu basliyor")
+
+
+rapor_sistemi()
+```
+##### --- ikinci bolum
+```py
+def kontrol_et(miktar):
+    if miktar >= 40000:
+        print(f"{miktar} miktar stok cok fazla")
+    else:
+        print(f"{miktar} stok var az devam")
+
+kontrol_et(40000)
+kontrol_et(50000)
+kontrol_et(30000)
+```
+##### --- ucuncu bolum
+```py
+def mike_payi(toplam_miktar):
+    hesap = toplam_miktar * 0.1
+    return hesap
+
+kesinti = mike_payi(50000)
+
+print(f"mike kari: {kesinti}")
+
+net_para = 50000 - kesinti
+
+print(f"kesinti ve net para {net_para}") 
+```
+##### --- dorduncu bolum
+```py
+odalar = [50000, 12000, 20000]
+
+def oda_islem(miktar):
+    if miktar >= 40000:
+        durum = "Kritik"
+    else:
+        durum = "Guvenli"
+    mike_payi = miktar * 0.10
+    elimizde_kalan = miktar - mike_payi
+    return durum, mike_payi, elimizde_kalan
+
+for o in odalar:
+    durum, pay, kalan = oda_islem(o)
+    print(f"Oda durumu: {durum} |  Mike_payi: {pay}  |  Bize kalan: {kalan}")
+```
+##### --- ilk ve ikinci sablon bolum
+```mermaid
+graph TD
+    Start([Başla]) --> P1[Bölüm 1: Basit Çıktı - rapor_sistemi]
+    P1 --> P2[Bölüm 2: Parametreli Kontrol - kontrol_et]
+    
+    P2 --> P3[Bölüm 3: Hesaplama ve return - mike_payi]
+    P3 --> Var1[Değişken: kesinti = 5000]
+    
+    Var1 --> P4[Bölüm 4: Liste ve Çoklu return - oda_islem]
+    P4 --> Loop[Döngü: Her Oda İçin]
+    
+    Loop --> Logic{miktar >= 40000?}
+    Logic -- Evet --> Crit[Durum: Kritik]
+    Logic -- Hayır --> Safe[Durum: Guvenli]
+    
+    Crit --> Calc[Pay & Kalan Hesapla]
+    Safe --> Calc
+    
+    Calc --> Ret["return Durum, Pay, Kalan"]
+    Ret --> Unpack["Değişkenlere Dağıt (Unpacking)"]
+    Unpack --> Print[Ekrana Sonuçları Yazdır]
+    
+    Print --> Next{Başka Oda Var mı?}
+    Next -- Evet --> Loop
+    Next -- Hayır --> End([Bitti])
+
+    style P1 fill:#f9f,stroke:#333
+    style P4 fill:#bbf,stroke:#333
+    style Ret fill:#dfd,stroke:#333
+```
+##### --- DEF --- [11.03.2026]
+###### --- ilk bolum
+```py
+def sevkiyat_hazirla(kisi, malzeme, miktar):
+
+    print(f"--- SEVKIYAT BIRIMI HAZIRLANDI ---")
+    print(f"Gonderilen Malzeme {malzeme}")
+    print(f"Miktar: {miktar} kg")
+    print(f"gonderen kisi: {kisi}")
+    if kisi == "GUS":
+        print(f"Bay {kisi} tarafindan gonderildiniz Ozel anlasma gecebilirsiniz")
+    
+    elif miktar >= 500:
+        print(F"UYARI: {malzeme} miktar {miktar} kg sayisi belirlenen sinirdan asiyor")
+    
+    else:
+        print(f"gonderen kisi: {kisi} malzeme: {malzeme} miktar: {miktar} kg tamam gecebilirsiniz")
+
+sevkiyat_hazirla("WAlTER", "Mavi Kristal", 600) 
+```
+###### --- ikinci bolum
+```py
+def laboravutar_durumu(isi, basinc, durum="Stabil"):
+    if isi >= 100:
+        print(f"UYARI: isi {isi} yuksek")
+        if basinc >= 50:
+            print(f"UYARI: basinc {basinc} yuksek")
+    elif isi <= 99:
+        print(f"DURUM: isi {isi} dusuk")
+        if basinc <= 49:
+            print(f"DURUM: basinc {basinc} dusuk")
+    else:
+        print("Hata")
+    print(f"suanki durum: {durum}")
+
+laboravutar_durumu(125, 75, "KRITIK")
+laboravutar_durumu(50, 25)
+```
+###### --- ilk sablon bolum
+```mermaid
+graph TD
+    Start([Fonksiyon Çağrıldı]) --> Input[Parametreler: isi, basinc, durum='Stabil']
+    Input --> TempCheck{isi >= 100?}
+    
+    TempCheck -- Evet --> HighTemp[UYARI: Isı Yüksek Yazdır]
+    HighTemp --> PressCheck1{basinc >= 50?}
+    PressCheck1 -- Evet --> HighPress[UYARI: Basınç Yüksek Yazdır]
+    PressCheck1 -- Hayır --> Status
+    
+    TempCheck -- Hayır --> LowTempCheck{isi <= 99?}
+    LowTempCheck -- Evet --> LowTemp[DURUM: Isı Düşük Yazdır]
+    LowTemp --> PressCheck2{basinc <= 49?}
+    PressCheck2 -- Evet --> LowPress[DURUM: Basınç Düşük Yazdır]
+    PressCheck2 -- Hayır --> Status
+    
+    LowTempCheck -- Hayır --> Error[Hata Yazdır]
+    
+    HighPress --> Status
+    LowPress --> Status
+    Error --> Status
+    
+    Status[suanki durum Yazdır] --> End([Bitti])
+
+    style Input fill:#bbf,stroke:#333
+    style TempCheck fill:#f9f,stroke:#333
+    style Status fill:#dfd,stroke:#333
+```
+##### --- RETURN --- [13.03.2026]
+###### --- ilk bolum 
+```py
+def saf_miktar(toplam_kg):
+    hesap = toplam_kg * 0.8
+
+    return hesap 
+
+tuco_payi = saf_miktar(1000)
+
+print(f"tuco nun payi {tuco_payi}")
+```
+###### --- ikinci bolum 
+```py
+def salamanca_payi(toplam_para):
+    Lalo_salamanca = toplam_para * 0.50
+    Tuco_salamanca = toplam_para * 0.50
+
+    return Lalo_salamanca, Tuco_salamanca
+
+L_S, T_S = salamanca_payi(50000)
+
+print(f"Salamanca tuco payi: {T_S} |  Salamanca lalo payi: {L_S}")
+
+salamanca_payi = 50000 - (L_S +T_S)
+
+print(f"Geri kalan Salamanca payi {salamanca_payi}")
+
+###### --- ikinci nolum sablon taslagi
+
+def salamanca_payi_hesapla(toplam_para):
+    # Fonksiyon ismini 'salamanca_payi_hesapla' yaptık ki değişkenle karışmasın
+    lalo_salamanca = toplam_para * 0.50
+    tuco_salamanca = toplam_para * 0.50
+    return lalo_salamanca, tuco_salamanca
+
+# 1. Fonksiyonu çağır ve değerleri yakala (Unpacking)
+L_S, T_S = salamanca_payi_hesapla(50000)
+
+# 2. Sonuçları yazdır (Dışta çift, içte tek tırnak kuralı)
+print(f"Salamanca tuco payi: {T_S} | Salamanca lalo payi: {L_S}")
+
+# 3. Kalan parayı hesapla (Değişken ismi: kalan_miktar)
+kalan_miktar = 50000 - (L_S + T_S)
+
+print(f"Geri kalan Salamanca payi: {kalan_miktar}")
+```
+###### --- ilk sablon bolum 
+```mermaid
+graph TD
+    Start([Başla]) --> Call[Fonksiyon Çağrısı: 50000]
+    Call --> Logic[Hesapla: 50% Lalo + 50% Tuco]
+    Logic --> Return[return 25000, 25000]
+    Return --> Unpack[Değişkenlere Dağıt: L_S ve T_S]
+    Unpack --> Print[Ekrana Payları Yazdır]
+    Print --> Calc[Hesapla: Kalan Miktar]
+    Calc --> End([Bitti])
+
+    style Call fill:#bbf,stroke:#333
+    style Return fill:#dfd,stroke:#333
+    style Unpack fill:#f9f,stroke:#333
+```
+#### --- VII_B BOLUM: TEMEL FONKSIYONLAR --- [16.03.2026-18.03.2026]
+##### --- SOZLUK UND FONKSIYON --- [16.03.2026]
+###### --- ilk bolum
+```py
+def envanter_ekle(isim, miktar, tur, kisi):
+    envanter = {
+        "ad": isim, 
+        "adet": miktar, 
+        "tip": tur,
+        "ismi": kisi
+    }
+    
+    return envanter 
+
+depo = []
+
+depo.append(envanter_ekle("Maske", "10", "Ekipman", "Walter"))
+print("--- DEPO MALZEMELERI")
+for urun in depo:
+    print(f"ESYA: {urun['ad']}  |  MIKTAR: {urun['adet']}  |  TIP: {urun['tip']}  |  KISI: {urun['ismi']}")
+```
+###### --- ikinci bolum 
+```py
+def hasta_kaydet(isim, ates, yakini):
+    liste = {
+        "kisi": isim,
+        "derece": ates,
+        "tanidigi": yakini
+    }
+
+    return liste 
+
+hastane_listesi = []
+
+hastane_listesi.append(hasta_kaydet("Hank", 38, "Gomez"))
+
+for hasta in hastane_listesi:
+    if hasta["derece"] >= 38:
+        print(f"UYARI: {hasta['kisi']} cok hasta sadece tanidik aliyoruz")
+    else:
+        print(f"Hasta suan iyi taburcu olabilir {hasta['tanidigi']} ")
+
+for bilgi in hastane_listesi:
+    print(f"KISI: {bilgi['kisi']}  |  DERECE: {bilgi['derece']}  |  YAKINI: {bilgi['tanidigi']}")
+```
+###### --- ilk sablon bolum
+```mermaid 
+graph TD
+    Start([Başla]) --> Call[Fonksiyon Çağrısı: hasta_kaydet]
+    Call --> CreateDict[Sözlük Oluştur: isim, ates, yakini]
+    CreateDict --> Return[return liste]
+    
+    Return --> Append[hastane_listesi.append]
+    Append --> Loop[Döngü: Liste Elemanlarını Tara]
+    
+    Loop --> Condition{derece >= 38?}
+    Condition -- Evet --> Warning[Yazdır: UYARI ve Tanıdık Mesajı]
+    Condition -- Hayır --> Safe[Yazdır: Taburcu Olabilir]
+    
+    Warning --> FinalPrint[Genel Liste Bilgilerini Yazdır]
+    Safe --> FinalPrint
+    
+    FinalPrint --> End([Bitti])
+
+    style Call fill:#bbf,stroke:#333
+    style Return fill:#dfd,stroke:#333
+    style Condition fill:#f9f,stroke:#333
+```
+##### --- THE FILTER LOGIC --- [17.03.2026]
+##### --- ilk bolum
+```py
+def malzeme_ekle(isim, miktar, tip):
+    liste = {
+        "ad": isim,
+        "sayi": miktar,
+        "tipi": tip
+    }
+
+    return liste
+
+depo = []
+
+depo.append(malzeme_ekle("Mavi kristal", 50, "urun"))
+depo.append(malzeme_ekle("Asit", 10, "Kimyasal"))
+depo.append(malzeme_ekle("Maske", 5, "Ekipman"))
+
+for depo_listesi in depo:
+    if depo_listesi["sayi"] <= 10:
+        print(f"UYARI: {depo_listesi['ad']} adli seyin sayi miktari {depo_listesi['sayi']} normal durumdan az")
+    else:
+        print(f"{depo_listesi['ad']} adli seyin miktari durumu stabil devam edelim")
+```
+##### --- ilk sablon bolum
+```mermaid
+graph TD
+    Start([Başla]) --> Call1[malzeme_ekle: Mavi Kristal]
+    Call1 --> Call2[malzeme_ekle: Asit]
+    Call2 --> Call3[malzeme_ekle: Maske]
+    
+    Call1 & Call2 & Call3 --> DictGen[Sözlük Oluştur ve return Et]
+    DictGen --> ListAppend[depo.append: Listeye Ekle]
+    
+    ListAppend --> Loop[Döngü: Depodaki Her Ürünü Tara]
+    
+    Loop --> Condition{sayi <= 10?}
+    
+    Condition -- Evet --> Warning[Yazdır: UYARI - Miktar Az]
+    Condition -- Hayır --> Stable[Yazdır: Durum Stabil]
+    
+    Warning --> Next{Başka Ürün Var mı?}
+    Stable --> Next
+    
+    Next -- Evet --> Loop
+    Next -- Hayır --> End([Bitti])
+
+    style Call1 fill:#bbf,stroke:#333
+    style DictGen fill:#dfd,stroke:#333
+    style Condition fill:#f9f,stroke:#333
+```
+##### --- hastalandigim icin dinlendim --- [18.03.2026]
+#### --- VII_C BOLUM: GELISMIS FONKSIYONLAR --- [23.03.2026-27.03.2026]
