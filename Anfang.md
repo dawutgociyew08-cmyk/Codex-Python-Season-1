@@ -1401,9 +1401,57 @@ Amaç,Sadece ekranda bilgi göstermek.,Bir değeri hafızada tutmak/iletmek.
 Etki,Programın geri kalanını etkilemez.,Programın akışında veri olarak kullanılır.
 Süreklilik,Veri ekranda kalır ama uçup gider.,Veri bir değişkene atanabilir.
 ```
+##### --- RETURN VS PRINT--[43.0-43.4]
+```PY
+43.0 print() vs return: Büyük Karşılaştırma
+43.1 print() (Sadece Gösteri):
+
+Nedir: Veriyi sadece terminale (ekrana) yazdırır.
+
+Ömrü: Ekranda göründüğü an biter. Program o veriyi hafızasında tutmaz.
+
+Kullanım Amacı: Yazılımcının kodun o an ne yaptığını görmesi (debugging) içindir.
+
+Benzetme: Bir garsonun siparişi mutfağa söylemek yerine sadece müşteriye "Yemeğiniz hazırlanıyor" demesi gibidir. Mutfak (programın kalanı) hala ne piştiğini bilmez.
+
+43.2 return (Veri Paketleme):
+
+Nedir: Fonksiyonun ürettiği sonucu "elimize" verir.
+
+Ömrü: Veri bir değişkene atanırsa program sonlanana kadar yaşar.
+
+Kullanım Amacı: Fonksiyondan çıkan sonucu başka bir hesaplamada veya bir listede kullanmak içindir.
+
+Benzetme: Bir aşçının yemeği paketleyip garsona vermesi gibidir. Artık o paketlenmiş yemek (veri) istenilen masaya (değişkene) götürülebilir.
+
+43.3 Uygulamalı Senaryo (Laboratuvar Örneği)
+Farkı bu kod bloğunda net bir şekilde görebilirsin:
+# --- PRINT KULLANAN FONKSİYON (Çıkmaz Sokak) ---
+def sadece_yazdir(miktar):
+    sonuc = miktar * 0.8
+    print(f"Hesaplanan: {sonuc}") # Sadece ekrana yazar, veri uçup gider.
+
+# --- RETURN KULLANAN FONKSİYON (Backend Standartı) ---
+def veri_dondur(miktar):
+    saf_madde = miktar * 0.8
+    return saf_madde # Veriyi paketleyip dışarı fırlatır.
+
+# TEST:
+deger1 = sadece_yazdir(100) # deger1 'None' olur, çünkü fonksiyon bir şey vermedi.
+deger2 = veri_dondur(100)   # deger2 '80' olur, artık bu sayıyı kullanabiliriz.
+
+final_stok = deger2 + 50    # ÇALIŞIR: 80 + 50 = 130
+# final_stok = deger1 + 50  # HATA VERİR: None ile sayı toplanamaz!
+43.4 Karar Tablosu
+Özellik	print()	return
+Görünürlük	Kullanıcı terminalde görür.	Yazılımcı hafızada saklar.
+Tekrar Kullanım	İmkansız (Veri yok olur).	Mümkün (Değişkene atanır).
+Fonksiyon Durumu	Devam edebilir.	Fonksiyonu o an bitirir.
+Backend Rolü	Hata ayıklama (Loglama).	Veri işleme (Mekanizma).
+```
 
 # --- CODEX PYTHON: BIRINCI DONEM --- 
-## --- BIRINCI KISIM --- [01.01.2026-00.03.2026]
+## --- BIRINCI KISIM --- [01.01.2026-03.04.2026]
 ### --- I BOLUM: TEMEL_DEGISKENLER --- [26.01.2026-30.01.2026]
 #### --- PRINT,INPUT,INT,STR --- [26.01.2026] ---
 ##### --- ilk bolum
@@ -3167,4 +3215,121 @@ graph TD
     style Condition fill:#f9f,stroke:#333
 ```
 ##### --- hastalandigim icin dinlendim --- [18.03.2026]
-#### --- VII_C BOLUM: GELISMIS FONKSIYONLAR --- [23.03.2026-27.03.2026]
+#### --- VII_C BOLUM: GELISMIS FONKSIYONLAR --- [23.03.2026-03.04.2026]
+##### --- RETURN VS PRINT --- [23.03.2026{and}30.03.2026]
+###### --- ilk bolum
+```py
+def durum_kontrol(ates):
+    if ates >= 38:
+        return "KRITIK"
+    else:
+        return "STABIL"
+
+def mudahale_et(durum):
+    if durum == "KRITIK":
+        print("Acil gonderme")
+    else:
+        print("Durum stabil")
+    
+rapor = durum_kontrol(37.5)
+mudahale_et(rapor)
+```
+###### --- ikinci bolum
+```py
+def envanter_ozeti(esya_adeti, adet):
+    if adet <= 5:
+        durum = "KRITIK"
+    else:
+        durum = "STABIL"
+    
+    return esya_adeti, adet, durum
+
+esya, sayi, sonuc = envanter_ozeti("ILAC", 7)
+
+print(f"esyanin kendisi {esya}  |  esyanin sayisi {sayi}  | ve sonucu {sonuc}")
+```
+###### --- ilk sablon bolum
+```mermaid
+graph TD
+    Start([Başla]) --> Call1[durum_kontrol: 37.5]
+    
+    subgraph Karar_Merkezi
+    Call1 --> Logic1{ates >= 38?}
+    Logic1 -- Evet --> Ret1[return 'KRITIK']
+    Logic1 -- Hayır --> Ret2[return 'STABIL']
+    end
+    
+    Ret2 --> Var[Değişken: rapor]
+    
+    Var --> Call2[mudahale_et: rapor]
+    
+    subgraph Aksiyon_Merkezi
+    Call2 --> Logic2{durum == 'KRITIK'?}
+    Logic2 -- Evet --> Print1[Yazdır: Acil Gonderme]
+    Logic2 -- Hayır --> Print2[Yazdır: Durum Stabil]
+    end
+    
+    Print2 --> End([Bitti])
+
+    style Call1 fill:#bbf,stroke:#333
+    style Var fill:#f9f,stroke:#333
+    style Print2 fill:#dfd,stroke:#333
+```
+###### --- bir hafta hastalandim --- [24.03.2026-29.03.2026]
+###### --- ilk bolum 
+```py
+def muvekkel_isle(ad, durum_kodu):
+
+    if durum_kodu == 1:
+        durum = "Masum"
+    elif durum_kodu == 2:
+        durum = "Suclu"
+    elif durum_kodu == 3:
+        durum = "supheli"
+    else:
+        durum = "Bilinmiyor"
+    return ad, durum_kodu, durum
+
+isim, bilgi, durum = muvekkel_isle("Micheal", 4)
+print(f"Sahsin ismi: {isim}  |  sahsin kodu: {bilgi}  |  ve suanki durumu: {durum}")
+```
+###### --- ikinci bolum
+```py
+def muvekkel_isle(ad, durum_kodu):
+    
+    if durum_kodu == 1:
+        durum = "Masum"
+    elif durum_kodu == 2:
+        durum = "Suclu"
+    elif durum_kodu == 3:
+        durum = "supheli"
+    else:
+        durum = "Bilinmiyor"
+    return ad, durum_kodu, durum
+
+muvekkil_listesi = [["Mike", 1], ["Gustavo", 4], ["Lalo", 3], ["Nacho", 3]]
+
+for ad_verisi, kod_verisi in muvekkil_listesi:
+    isim, sonuc, durum = muvekkel_isle(ad_verisi, kod_verisi)
+    print(f"ismi: {isim}  | sonuc: {sonuc}  | ekstra bilgi: {durum}")
+```
+###### --- ucuncu bolum 
+```py
+def sevkiyat_kontrol(kova_id, paket_sayisi):
+    if paket_sayisi <= 0:
+        durum = "TEMIZ  |  RISK_YOK"
+    elif paket_sayisi >= 1 and paket_sayisi <= 2:
+        durum = "KIRLI  |  RISK_ORTA"
+    elif paket_sayisi  >= 3:
+        durum = "TEHLIKELI  |  RISK_YUKSEK"
+    else:
+        durum = "BILINMIYOR  |  RISK_???"
+
+    return kova_id, paket_sayisi, durum
+
+sevkiyat_verisi = [["Kova-A", 0], ["Kova-B", 2], ["Kova-C", 5], ["Kova-D", 1]]
+
+for sev_kontrol, sev_kodu in sevkiyat_verisi:
+    ad, sonuc, durum = sevkiyat_kontrol(sev_kontrol, sev_kodu)
+    print(f"Sevkiyatin ismi: {ad}  |  sevkiyatin bilgi: {sonuc}  | sevkiyatin sonucu: {durum}")
+```
