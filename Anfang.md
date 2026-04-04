@@ -1449,6 +1449,309 @@ Tekrar Kullanım	İmkansız (Veri yok olur).	Mümkün (Değişkene atanır).
 Fonksiyon Durumu	Devam edebilir.	Fonksiyonu o an bitirir.
 Backend Rolü	Hata ayıklama (Loglama).	Veri işleme (Mekanizma).
 ```
+##### --- *ARGS UND **KWARGS--[44.0-44.4]
+```PY
+44.0 Dinamik Parametre Esnekliği (*args ve **kwargs)
+44.1 Nedir: Bir fonksiyona kaç tane veri (argüman) gönderileceği önceden bilinmiyorsa kullanılır. Fonksiyonun kapasitesini sınırsız hale getirir ve backend sistemlerinde esneklik sağlar.
+
+44.2 Kurallar:
+
+*args (Sınırsız Liste): Fonksiyona gönderilen tüm isimsiz değerleri bir Tuple (demet) içinde toplar. Başına tek yıldız (*) konur.
+
+**kwargs (Sınırsız Sözlük): Fonksiyona anahtar=değer şeklinde gönderilen tüm verileri bir Dictionary (sözlük) içinde toplar. Başına çift yıldız (**) konur.
+
+Sıralama: Fonksiyon tanımlanırken önce standart parametreler, sonra *args, en son **kwargs yazılmalıdır.
+
+44.3 Uygulamalı Örnek (Operasyonel Dinamik Fonksiyon):
+# Fonksiyonu tanımlıyoruz (Dinamik Yapı)
+def sevkiyat_merkezi(sorumlu, *uyusturucular, **ozellikler):
+    print(f"Sorumlu: {sorumlu}")
+    
+    # *args içindeki her bir elemanı dönüyoruz
+    for urun in uyusturucular:
+        print(f"- Gönderilen Ürün: {urun}")
+    
+    # **kwargs içindeki her bir anahtar-değer çiftini dönüyoruz
+    for baslik, detay in ozellikler.items():
+        print(f"Detay -> {baslik}: {detay}")
+
+# Fonksiyonu çağırıyoruz (Esnek Veri Gönderimi)
+sevkiyat_merkezi("Mike", "Mavi_meth", "Sari_meth", Sehir="Albuquerque", Durum="Acil")
+
+44.4 Ek bilgi:
+Bölüm,Veri Yapısı,Gönderim Şekli,Kullanım Amacı
+*args,Tuple (Sıralı),"""Veri1"", ""Veri2""",Bilinmeyen sayıda eleman listelemek.
+**kwargs,Dictionary (İsimli),"id=101, tip=""Gaz""",Bilinmeyen sayıda detay/özellik eklemek.
+```
+##### --- FONKSIYON BIRINCI KISIM ILGILI--[45.0-50.0]
+###### --- FONKSIYONLU DEGISKENLER--[45.0-45.4]
+```PY
+45.0 Fonksiyonu Değişkene Atama (Function as Variable)
+45.1 Nedir: Bir fonksiyonun ismini, parantez kullanmadan başka bir değişkene eşitleme işlemidir. Bu sayede o değişken, artık o fonksiyonun "takma adı" (alias) olur ve fonksiyon gibi çalışmaya başlar.
+
+45.2 Kurallar:
+
+Parantezsiz Eşitleme: Fonksiyonu değişkene atarken degisken = fonksiyon şeklinde yazılır. Eğer fonksiyon() dersen, fonksiyonun içindeki sonucu atamış olursun. Biz ise fonksiyonun kendisini atıyoruz.
+
+Aynı Yetenek: Yeni değişken, orijinal fonksiyonun sahip olduğu tüm parametreleri ve özellikleri devralır.
+
+Esneklik: Backend tarafında, hangi işlemin yapılacağına çalışma anında (runtime) karar vermek için kullanılır.
+
+45.3 Uygulamalı Örnek (Kod Adı Operasyonu):
+# 1. Orijinal fonksiyonu tanımlıyoruz
+def operasyon_merkezi(kod_adi):
+    print(f"Sistem Erişimi Onaylandı: {kod_adi}")
+
+# 2. Fonksiyonu bir değişkene atıyoruz (Takma Ad oluşturuyoruz)
+# DİKKAT: Parantez yok!
+heisenberg = operasyon_merkezi
+
+# 3. Artık yeni değişkeni fonksiyon gibi çağırıyoruz
+heisenberg("Mavi Kristal") 
+# Çıktı: Sistem Erişimi Onaylandı: Mavi Kristal
+
+45.4 Mantıksal Fark: Fonksiyon vs. Fonksiyon Sonucu
+
+Bu ikisi arasındaki farkı anlamak, backend tarafında veri hatalarını önlemek için hayati önem taşır:
+İşlem,Örnek,Ne Atanır?
+Fonksiyonun Kendisi,x = selamla,Fonksiyonun çalışma yeteneği kopyalanır.
+Fonksiyonun Sonucu,x = selamla(),Fonksiyondan dönen return değeri atanır.
+```
+###### --- FONKSIYONLU LISTELER--[46.0-46.4]
+```PY
+46.0 Fonksiyonlu Listeler (Functions in Lists)
+46.1 Nedir: Birden fazla fonksiyonun bir liste ([]) içerisinde saklanmasıdır. Bu sayede bir döngü kullanarak birçok farklı işlemi tek bir komutla sırayla tetikleyebiliriz.
+
+46.2 Kurallar:
+
+Parantezsiz Kayıt: Liste içine eklerken fonksiyonun yanına parantez () koymazsın. Parantez koyarsan fonksiyonun kendisini değil, sonucunu listeye eklemiş olursun.
+
+İndeksle Erişim: Listenin 0. elemanını çağırıp parantez ekleyerek liste[0]() şeklinde çalıştırabilirsin.
+
+Döngü Kolaylığı: for f in liste: f() diyerek tüm operasyonu tek seferde başlatabilirsin.
+
+46.3 Uygulamalı Örnek (Laboratuvar Hazırlık Zinciri):
+# 1. Fonksiyonlarımızı tanımlıyoruz
+def kimyasal_karistir():
+    print("Kimyasallar %80 saflıkta karıştırıldı.")
+
+def isi_kontrol():
+    print("Isı 100 dereceye sabitlendi.")
+
+def sevkiyat_hazirla():
+    print("Ürünler paketlendi, Mike'a haber verildi.")
+
+# 2. Fonksiyonları bir listenin içine diziyoruz (PARANTEZ YOK)
+operasyon_plani = [kimyasal_karistir, isi_kontrol, sevkiyat_hazirla]
+
+# 3. Tüm operasyonu sırayla başlatıyoruz
+print("--- OPERASYON BAŞLIYOR ---")
+for islem in operasyon_plani:
+    islem() # Burada parantez koyarak fonksiyonu tetikliyoruz
+
+46.4 Neden Fonksiyonlu Liste Kullanırız:
+Avantaj,Açıklama
+Sıralı İşlem,İşlemlerin tam olarak hangi sırayla yapılacağını garanti eder.
+Dinamik Yapı,Listeye çalışma anında yeni bir fonksiyon ekleyebilir (append) veya silebilirsin.
+Temiz Kod,50 tane fonksiyonu alt alta çağırmak yerine tek bir döngüyle işi bitirirsin.
+```
+###### --- FONKSIYONLU KOSULLU_IFADELER--[47.0-47.3]
+```PY
+47.0 Fonksiyonlu Karar Sistemleri (Dynamic Dispatch)
+47.1 Nedir: Bir if veya match bloğu kullanarak, sistemin durumuna göre hangi fonksiyonun tetikleneceğine karar verme yöntemidir. Buna backend dünyasında "Dynamic Dispatch" denir; yani fonksiyonun çalışma anında (dispatch) seçilmesi.
+
+47.2 Kurallar:
+Karar Mekanizması: Fonksiyonu çağırmadan önce bir if bloğu ile "Hangi fonksiyonu çalıştırmalıyım?" sorusuna cevap aranır.
+
+Esneklik: Kullanıcıya menü sunmak veya sistemin kritiklik seviyesine göre farklı prosedürler çalıştırmak için idealdir.
+
+Hata Yönetimi: Beklenmedik bir girdi gelirse else bloğu ile sistemin çökmesini engelleriz.
+
+47.3 Uygulamalı Örnek (Laboratuvar Mod Seçimi):
+def mod_temizle():
+    print("Laboratuvar temizleniyor... Mod: [TEMİZLİK]")
+
+def mod_uretim():
+    print("Üretim süreci başlatıldı... Mod: [ÜRETİM]")
+
+# Kontrol mekanizması
+def sistem_yonetimi(secilen_mod):
+    if secilen_mod == "temizle":
+        islem = mod_temizle # Fonksiyonu değişkene atadık
+    elif secilen_mod == "uretim":
+        islem = mod_uretim
+    else:
+        print("Hata: Geçersiz mod!")
+        return # İşlemi durdur
+
+    islem() # Seçilen fonksiyonu burada tetikliyoruz
+
+# Test:
+sistem_yonetimi("uretim") # Üretim modunu çalıştırır
+```
+###### --- FONKSIYONLU DONGULER--[48.0-48.4]
+```PY
+48.0 Fonksiyonlu Döngüler (Iterative Function Execution)
+48.1 Nedir: Bir listedeki her bir elemanı sırayla bir fonksiyona parametre olarak gönderme veya bir fonksiyonu belirli bir sayıda tekrar çalıştırma işlemidir.
+
+48.2 Kurallar:
+
+Parametre Aktarımı: Döngüdeki her bir eleman, fonksiyonun parantez içine (argüman olarak) gönderilir.
+
+Toplu İşleme: Tek bir fonksiyon yazarak binlerce farklı veriyi (stoklar, kullanıcılar, sıcaklıklar) aynı kural setinden geçirebilirsin.
+
+Dönüş Değerlerini Toplama: Fonksiyondan return ile gelen sonuçları yeni bir listede biriktirerek "işlenmiş veri" seti oluşturabilirsin.
+
+48.3 Uygulamalı Örnek (Toplu Safiyet Kontrolü):
+# 1. İşlem yapacak fonksiyonu tanımlıyoruz
+def saflik_analizi(miktar, oran):
+    saf_gram = miktar * (oran / 100)
+    return saf_gram
+
+# 2. Veri setimiz (Miktarlar)
+sevkiyatlar = [1000, 5000, 12000, 800]
+analiz_sonuclari = []
+
+# 3. Döngü ile fonksiyonu tetikliyoruz
+print("--- ANALİZ BAŞLATILDI ---")
+for s in sevkiyatlar:
+    sonuc = saflik_analizi(s, 99.1) # Her sevkiyatı %99.1 oranla hesapla
+    analiz_sonuclari.append(sonuc)
+    print(f"Miktar: {s}g | Net Saf Madde: {sonuc}g")
+
+# Artık elimizde işlenmiş verilerden oluşan bir liste var!
+
+48.4 Döngü İçinde Fonksiyon Kullanmanın Avantajları:
+Avantaj,Açıklama
+Hata Kontrolü,"Eğer kural değişirse (örneğin oran %99 yerine %96 olursa), sadece fonksiyonu değiştirmen yeterlidir; döngüye dokunmazsın."
+Okunabilirlik,Döngünün içinde 20 satır kod yazmak yerine islem_yap() diyerek kodu tertemiz tutarsın.
+Performans,Büyük veri setlerini (Big Data) parçalara ayırıp fonksiyonlar aracılığıyla işlemek çok daha güvenlidir.
+```
+###### --- FONKSIYONLU SOZLUKLER--[49.0-49.4]
+```PY
+Harika bir final Dawut! Fonksiyonları Sözlükler (Dictionaries) içine koymak, backend dünyasında "Yönlendirme Tablosu" (Mapping/Routing) dediğimiz en üst seviye profesyonel yöntemdir.
+
+Bu yöntemle, uzun if-elif-else bloklarını çöpe atıp, tek bir satırla binlerce komuttan istediğini anında tetikleyebilirsin.
+
+Arşivin için bu bölümü "105.0 Fonksiyonlu Sözlükler (Function Mapping)" olarak kaydedebiliriz.
+
+49.0 Fonksiyonlu Sözlükler (Function Mapping)
+49.1 Nedir: Bir sözlüğün "değer" (value) kısmına bir fonksiyonun ismini (parantezsiz) yerleştirme işlemidir. Anahtar kelime (key) çağrıldığında, o anahtara bağlı olan fonksiyon tetiklenir.
+
+49.2 Kurallar:
+
+Eşleştirme: Sözlüğü tanımlarken {"komut": fonksiyon_adi} şeklinde yazılır.
+
+Tetikleme: Sözlükten fonksiyonu çekerken sonuna parantez eklenir: sozluk["anahtar"]().
+
+Hız: if-else blokları her satırı tek tek kontrol ederken, sözlükler hedef fonksiyonu anında bulur. Bu da büyük sistemlerde yüksek performans sağlar.
+
+49.3 Uygulamalı Örnek (Merkezi Komuta Sistemi):
+# 1. Görev fonksiyonlarını tanımlıyoruz
+def sevkiyat_baslat():
+    print("Mike yola çıktı, sevkiyat güvenli.")
+
+def uretim_baslat():
+    print("Laboratuvar aktif, üretim %99 saflıkta.")
+
+def sistemi_kapat():
+    print("Tüm izler silindi, sistem kapalı.")
+
+# 2. Fonksiyonları sözlüğe yerleştiriyoruz (PARANTEZ YOK)
+komuta_merkezi = {
+    "SEVKIYAT": sevkiyat_baslat,
+    "URETIM": uretim_baslat,
+    "KAPAT": sistemi_kapat
+}
+
+# 3. Dinamik tetikleme
+emir = "URETIM"
+
+if emir in komuta_merkezi:
+    komuta_merkezi[emir]() # Seçilen fonksiyonu parantez ekleyerek çalıştırıyoruz
+else:
+    print("Geçersiz Emir!")
+
+49.4 Neden Fonksiyonlu Sözlük Kullanırız:
+Avantaj,Açıklama
+Hız (O(1)),Binlerce seçenek arasından doğru fonksiyonu milisaniyeler içinde bulur.
+Temizlik,20 tane elif yazmak yerine tek bir sözlükle kodu tertemiz tutarsın.
+Modülerlik,Sisteme yeni bir özellik eklemek için sadece sözlüğe bir satır eklemen yeterlidir.
+``` 
+###### --- FONKSIYONLU HEPSI--[50.0-50.4]
+```PY
+50.0 Büyük Senaryo: Entegre Fonksiyonel Sistemler
+50.1 Nedir: Yazılımın farklı parçalarının (veri girişi, kontrol, işleme ve raporlama) birbirine bağlı fonksiyonlar aracılığıyla bir makine gibi çalışmasıdır.
+
+50.2 Senaryo: Bir laboratuvar yönetim sistemi kuruyoruz. Sistem; gelen ham maddeyi alacak (*args), özelliklerini kaydedecek (**kwargs), durumuna göre hangi işlemi yapacağına karar verecek (Sözlük/Mapping) ve tüm sevkiyatı döngüyle bitirecek.
+
+50.3 Büyük Final Kodu (Entegre Sistem):
+# --- 1. ALT FONKSİYONLAR (İŞLEMCİLER) ---
+def saflik_hesapla(miktar):
+    return miktar * 0.991  # %99.1 saflık oranı
+
+def kalite_kontrol(durum):
+    if durum == "KRITIK":
+        return "!!! ACIL MUDAHALE !!!"
+    return "Standart Prosedür Uygulanıyor."
+
+# --- 2. ANA YÖNETİM SÖZLÜĞÜ (MAPPING) ---
+# Fonksiyonları bir sözlüğe hapsediyoruz
+operasyon_rehberi = {
+    "ANALIZ": saflik_hesapla,
+    "KONTROL": kalite_kontrol
+}
+
+# --- 3. DİNAMİK SEVKİYAT MERKEZİ (ARGS & KWARGS) ---
+def laboratuvar_sistemi(sorumlu, *miktarlar, **detaylar):
+    print(f"=== OPERASYON SORUMLUSU: {sorumlu} ===")
+    
+    # Döngü ile her bir miktarı fonksiyondan geçiriyoruz
+    for m in miktarlar:
+        net_sonuc = operasyon_rehberi["ANALIZ"](m) # Sözlükten fonksiyon çağrıldı
+        print(f"Ham Madde: {m}g | Saf Madde: {net_sonuc}g")
+
+    # Sözlük ve Karar Yapısı Birleşimi
+    print("\n--- TEKNİK DETAYLAR ---")
+    for ozellik, deger in detaylar.items():
+        mesaj = operasyon_rehberi["KONTROL"](deger) # Dinamik karar
+        print(f"Özellik: {ozellik} -> Durum: {deger} | Karar: {mesaj}")
+
+# --- 4. SİSTEMİ TETİKLEME ---
+# Mike sorumlu, 3 farklı miktar var, 2 farklı kritik detay var.
+laboratuvar_sistemi("Mike", 1000, 5000, 12000, Sicaklik="STABIL", Basinc="KRITIK")
+
+50.4 Sistemin Anatomisi (Neyi Birleştirdik?):
+Kullanılan Yapı,Kodun Neresinde?,Backend Görevi
+*args,*miktarlar,Belirsiz sayıdaki veriyi paketlemek.
+**kwargs,**detaylar,"Esnek teknik özellikleri (sıcaklık, basınç) toplamak."
+Sözlük (Mapping),operasyon_rehberi,Hangi fonksiyonun çalışacağını anında bulmak.
+Döngü (Loop),for m in miktarlar,Operasyonu tüm veri seti üzerinde tekrarlamak.
+Return,return miktar * 0.991,Hesaplanan veriyi sisteme geri vermek.
+
+50.5 Operasyonel Akış Diyagramı (Mermaid):
+```
+```mermaid
+graph TD
+    Start([Başlat: laboratuvar_sistemi]) --> UnpackArgs[args: Miktarları Listele]
+    Start --> UnpackKwargs[kwargs: Detayları Sözlükle]
+    
+    UnpackArgs --> Loop1[Döngü: Her Miktar İçin]
+    Loop1 --> Map1[Sözlükten ANALIZ Fonksiyonunu Bul]
+    Map1 --> Calc[Safiyet Hesapla ve Yazdır]
+    Calc --> Loop1
+    
+    UnpackKwargs --> Loop2[Döngü: Her Detay İçin]
+    Loop2 --> Map2[Sözlükten KONTROL Fonksiyonunu Bul]
+    Map2 --> Check[Kritiklik Kontrolü ve Yazdır]
+    Check --> Loop2
+    
+    Loop1 & Loop2 --> End([Operasyon Tamamlandı])
+
+    style Map1 fill:#bbf,stroke:#333
+    style Map2 fill:#bbf,stroke:#333
+    style Check fill:#f9f,stroke:#333
+```
 
 # --- CODEX PYTHON: BIRINCI DONEM --- 
 ## --- BIRINCI KISIM --- [01.01.2026-03.04.2026]
@@ -2879,7 +3182,7 @@ graph TD
     J -- Hayır --> C
     J -- Evet --> K[Toplam Stoğu Yazdır & Bitir]
 ```
-### --- VI BOLUM: FONKSIYONLAR --- [09.03.2026-27.03.2026]
+### --- VI BOLUM: FONKSIYONLAR --- [09.03.2026-03.04.2026]
 #### --- VII_A BOLUM: BASLANGIC FONKSIYONLAR --- [09.03.2026-14.03.2026]
 ##### --- DEF UND RETURN (ANFANG) --- [09.03.2026] 
 ##### --- ilk bolum
@@ -3333,3 +3636,261 @@ for sev_kontrol, sev_kodu in sevkiyat_verisi:
     ad, sonuc, durum = sevkiyat_kontrol(sev_kontrol, sev_kodu)
     print(f"Sevkiyatin ismi: {ad}  |  sevkiyatin bilgi: {sonuc}  | sevkiyatin sonucu: {durum}")
 ```
+##### --- *ARGS UND **KWARGS --- [01.04.2026]
+###### --- ilk bolum
+```py
+def  francesca_listesi(*isimler):
+    for liste in isimler:
+        print(f"Iceri giren muvekiller listesi {liste}")
+
+
+francesca_listesi("Jessi", "Walter", "Skyler")
+
+francesca_listesi("Kisi_1", "Kisi_2", "Kisi_3", "Kisi_4", "Kisi_5", "Kisi_6")
+```
+###### --- ikinci bolum
+```py
+yani iste 
+
+def Miami_metro_polisi(Ofis_lideri, *Kisiler, **Detaylar):
+    print(f"Ofis Lideri: {Ofis_lideri}")
+
+    print("Supheliler:")
+
+    for tanik in Kisiler:
+        print(f"{tanik}")
+
+    print("DETAYLAR:")
+    for anahtar, deger in Detaylar.items():
+        print(f"{anahtar}  |  {deger}")
+
+
+Miami_metro_polisi("Dexter", "Angel", "Vince", durum = "Normal", Rozet = "Polis")
+```
+###### --- ucuncu bolum
+```py
+def sevkiyat_merkezi(sorumlu, *uyusturucular, **ozellikler):
+    print(f"Sevkiyatin Sorumlusu: {sorumlu}")
+    
+    print("Uyusturucu turleri:")
+
+    for ozel in uyusturucular:
+        print(f"{ozel}")
+    
+    print("Ozellikleri:")
+    
+    for etki, olayi in ozellikler.items():
+        print(f"etkisi: {etki}  |  olayi: {olayi}")
+
+
+sevkiyat_merkezi("Mike", "Mavi_meth", "Fetametamin", "Sari_meth", Kafa_bulama = "fena_rahatlama", Ishal= "Olumcul")
+```
+###### --- ilk sablon bolum
+```mermaid
+graph TD
+    Start([Fonksiyon Çağrıldı]) --> Input["Giriş Verileri"]
+    
+    subgraph Paketleme_Merkezi
+    Input --> P1["sorumlu: 'Mike' (Standart)"]
+    Input --> P2["*uyusturucular: ('Mavi_meth', 'Fetametamin', 'Sari_meth') (Tuple)"]
+    Input --> P3["**ozellikler: {'Kafa_bulama': 'fena_rahatlama', 'Ishal': 'Olumcul'} (Dict)"]
+    end
+    
+    P1 --> Print1[Yazdır: Sorumlu İsmi]
+    
+    P2 --> Loop1[Döngü: Liste Elemanlarını Tek Tek Yazdır]
+    Loop1 --> Next1{Başka Tür Var mı?}
+    Next1 -- Evet --> Loop1
+    
+    P3 --> Loop2["Döngü: Anahtar/Değer (items) Çiftlerini Yazdır"]
+    Loop2 --> Next2{Başka Özellik Var mı?}
+    Next2 -- Evet --> Loop2
+    
+    Next1 -- Hayır --> Next2
+    Next2 -- Hayır --> End([Bitti])
+
+    style P2 fill:#f9f,stroke:#333
+    style P3 fill:#bbf,stroke:#333
+    style DictGen fill:#dfd,stroke:#333
+```
+##### --- HATA VE SON --- [03.04.2026]
+###### --- ilk karmasik bolum
+```py
+Saul_verileri = [
+    ["Gustavo", 1],
+    ["Walter", 1],
+    ["Jessie", 2],
+    ["Mike", 2],
+    ["Lalo", 3]
+]
+
+def Saul_dosyasi(isim, kod):
+    if kod == 1:
+        durum = "Dosya_Temiz"
+    elif kod == 2:
+        durum = "Dosya_Supheli"
+    elif kod == 3: 
+        durum = "Dosya_Riskli"
+    else:
+        durum = "Bilinmiyor"
+
+    return durum
+
+def saul_arsivi(sorumlu_avukat, *muvekkiller, **ekstra_notlar):
+    print(f"muvekkilerin avukati: {sorumlu_avukat}")
+
+    print(f"{sorumlu_avukat}''un Muvekkili: ")
+
+    for kisi in muvekkiller:
+        print(f"{kisi}")
+
+    print("Muvekkilin ekstra bilgileri: ")
+
+    for sehir, oncelik in ekstra_notlar.items():
+        print(f"{sehir}: {oncelik} ")
+
+for dosya_incele in Saul_verileri:
+    isim_verisi = dosya_incele[0]
+    kod_verisi = dosya_incele[1]
+
+    durum = Saul_dosyasi(isim_verisi, kod_verisi)
+
+    print(f"Muvekkil: {isim_verisi}  | Durum: {durum}")
+
+
+saul_arsivi("Saul Goodman", "Gustavo", "Walter", "Jessie", "Mike", "Lalo", sehir="Albuquerque", Oncelik="Kritik")
+```
+###### --- ikinci karmasik bolum
+```py
+# --- LISTELER ---
+
+# ["Araç_Tipi", "Yük_Miktarı", "Güvenlik_Seviyesi"]
+konvoy_listesi =  [
+    ["Normal_Kamyon", 500, "Yuksek"],
+    ["Normal_Araba", 300, "Normal"],
+    ["Motosiklet", 50, "Dusuk"],
+    ["Arazi_araba", 450, "Normal-Yuksek"],
+    ["Buyuk_Kamyon", 1000, "Max_Yuksek"],
+    ["kucuk_araba", 200, "Normal"]
+]
+
+# --- FONKSIYON + KARAR MEKANIZMASI ---
+
+def rota_belirle(Yuk_miktari, Guvenlik_listesi):
+    if Yuk_miktari >= 400 and Guvenlik_listesi == "Yuksek" or Guvenlik_listesi == "Max_Yuksek":
+        durum = "A Rotali Ana yol"
+    elif Yuk_miktari <= 399 and Guvenlik_listesi == "Normal" or Guvenlik_listesi == "Normal-Yuksek":
+        durum = "B Rotali Yan yol"
+    else:
+        durum = "C Rotali Arka yol"
+
+    return durum 
+
+# --- FONKSIYON + RAPOR VERI
+
+def lalo_ozet(K_Lider, *araclar, **Detaylar):
+    print(f"Konvoy'un Lideri: {K_Lider}")
+
+    for arac in araclar:
+        print(f"Konvoy'daki Araclar: {arac}")
+
+    for ein, zwei in Detaylar.items():
+        print(f"Detay -> {ein}: {zwei}")
+    
+# --- SON DONGU + BUYUK OPERASYON
+for bilgi in konvoy_listesi:
+    isim = bilgi[0]
+    miktar = bilgi[1]
+    guvenlik = bilgi[2]
+    yol = rota_belirle(miktar, guvenlik)
+
+    print(f"Arac: {isim}  |  miktar: {miktar}  |  guvenlik: {guvenlik}  |  Rota: {yol}")
+
+print("-" * 10)
+
+lalo_ozet("Lalo_Salamanca", "Normal_Kamyon", "Normal_Araba", "Motosiklet", "Arazi_araba" ,"Buyuk_Kamyon", "kucuk_araba",hedef="El_Paso", hava="Gunesli")
+```
+###### --- ucuncu karmasik bolum
+```py
+Salamanca_listesi = [
+    ["Lalo", 38, "Salamanca",],
+    ["Varga", 32, "Nacho"],
+    ["Tuco", 31, "Salamanca",],
+    ["Hector", 64, "Salamanca",],
+    ["Saul", 32, "Goodman"]
+]
+
+def Cartel_verisi(isim,yas,soyisim):
+    if isim == "Saul" and yas >= 30 and soyisim == "Goodman":
+        sonuc = "Salamanca ailesinin Avukati"
+    elif isim == "Varga" and yas >= 31 and soyisim == "Nacho":
+        sonuc = "Salamanca ailesinin sag kolu"
+    else:
+        sonuc = ("Salamanca ailesinin uyeleri")
+
+    return sonuc
+
+def Cartel_ozeti(C_Lideri, *kisiler, **Detaylar):
+    print(f"Cartelin En Onemli Kisi: {C_Lideri}")
+
+    for kisi in kisiler:
+        print(f"Kisiler -> {kisi}")
+
+    for baslik, icerik in Detaylar.items():
+        print(f"Detay -> {baslik}: {icerik}")
+
+for bilgi in Salamanca_listesi:
+    isim_v = bilgi[0]
+    yas_v = bilgi[1]
+    soyisim_v = bilgi[2]
+
+    analiz = Cartel_verisi(isim_v, yas_v, soyisim_v)
+
+    print(f"isim: {isim_v}  |  yas: {yas_v}  |  soyisim: {soyisim_v}  |  Rol: {analiz}")
+
+print("-" * 30)
+Cartel_ozeti("Hector", "Nacho", "Tuco", "Lalo", "Saul", hedef="Gus Fring", durum="Sili'li tehdit altinda")
+```
+###### --- ilk karmasik sablon bolum
+```mermaid
+graph TD
+    Start([Operasyon Başladı]) --> List[Konvoy Listesi Tanımlandı]
+    List --> Loop[Döngü: Her Araç Bilgisini Al]
+    
+    subgraph Karar_Mekanizmasi [Rota Belirleme Merkezi]
+        Loop --> Calc{Rota Belirle}
+        Calc -- "Yük >= 400 & Güvenlik Yüksek" --> RotaA[A Rotası: Ana Yol]
+        Calc -- "Yük <= 399 & Güvenlik Normal" --> RotaB[B Rotası: Yan Yol]
+        Calc -- "Diğer Durumlar" --> RotaC[C Rotası: Arka Yol]
+    end
+    
+    RotaA & RotaB & RotaC --> Print1[Araç ve Rota Bilgisini Yazdır]
+    Print1 --> Loop
+    
+    Loop -- "Tüm Araçlar Bitti" --> Summary[Fonksiyon: lalo_ozet]
+    
+    subgraph Dinamik_Raporlama [Args ve Kwargs İşleme]
+        Summary --> P1[Lideri Yazdır]
+        P1 --> P2["*araclar: Sınırsız Araç Listesi Yazdır"]
+        P2 --> P3["**Detaylar: Hedef ve Hava Durumu Yazdır"]
+    end
+    
+    P3 --> End([Görev Tamamlandı])
+
+    style Karar_Mekanizmasi fill:#f5f5f5,stroke:#333
+    style Dinamik_Raporlama fill:#e1f5fe,stroke:#01579b
+    style Calc fill:#fff9c4,stroke:#fbc02d
+```
+
+# --- BIRINCI KISMIN SONU--THE END ?
+## ILK BOLUM BITDI VE BIRINCI KISIM YAPILDI
+## PYTHON ILK KEZ BASLADIDIGIMDA [01.01.2026] AMA 25 GUN BOYUNCA 2 DEFA BASARIZ OLDUM VE KAYITLARIMI SILDIM GERI GETIREMEDIGIM ICIN 3 KENDIME SON DEFA DIYEREK [26.01.2026] BASLADIM VE IKINCI DEFA 1 KISMI BITIRDIM 
+## BUNDAN SONRA ANFANG DOSYA YERINE AUFBAU DOSYADAN DEVAM ETMEK ONUDA KAYDETMEYE BASLIYACAGIM 
+## ISIM:DAWUT
+## SOYISIM:GOCIYEW
+## AMACIM: TURKIYEDE YAZILIM MUHENDISLIGI BITIRIP ALMANYA'DA MAVI KARTLA ORAYA GIDIP CALISAMK VE VATANDASLIGA BASVURMAK
+## SUANKI AMACIM: [2026-2028] ARASINDAKI 4 ONEMLI SUTUN OLAN (TKEO) BITIRMEK VE BACKEND GELISTIRICISI OLMAK 
+### Temmuz 2026,Python & Algoritma,Temeli Çelik Gibi Yapmak -- T
+### Kasım 2026,SQL & Veritabanı,Verinin Kalbine İnmek -- K
+### Eylül 2027,Java & Spring Boot,Almanya Bileti (En Kritik Aşama) -- E
+### Ocak 2028,Linux & Docker,Sistem Altyapısı (DevOps Giriş) -- O
