@@ -1,4 +1,4 @@
-# 🚀 Codex Python: Sezon 1
+# 🚀 Codex Python: Sezon 1-2
 
 Bu depo, 16 yaşında bir backend geliştirici adayı olarak Python yolculuğumda aldığım tüm notları ve çözdüğüm algoritmaları içerir. 🇩🇪
 
