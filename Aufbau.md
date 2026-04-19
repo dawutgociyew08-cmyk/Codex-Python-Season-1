@@ -6,6 +6,16 @@ Hafta,Konu,"Gemini'nin ""Profesyonel"" Dokunuşu"
 4-5. Hafta,Miras (Inheritance),"Ekleme: Burada ""Kod Tekrarı"" (Don't Repeat Yourself - DRY) ilkesini kafamıza kazıyacağız. Walter White'ın her seferinde sıfırdan laboratuvar kurmadığını, var olanı kullandığını düşün."
 9. Hafta,Hata Yönetimi,"Düzenleme: Bunu 8. haftaya çekebiliriz. Çünkü dosya işlemlerine (10. Hafta) geçtiğimizde ""Dosya bulunamadı"" gibi hataları yönetmeyi önceden bilmelisin."
 10. Hafta,Dosya İşlemleri & Final,"Zirve: Burada sadece dosya okumayacağız. Tüm Salamanca ailesini bir .json veya .txt dosyasına ""kaydedip"" programı kapatıp açtığımızda geri getireceğiz."
+
+Hafta,Konu,Teknik Odak,Stratejik Mantık (Neden?)
+1-2. Hafta,Sınıf & Nesne (The Soul),"class, __init__, self","Canlandırma: Statik koddan canlı sistemlere geçiş. __init__ ile nesneye kimlik, self ile bilinç kazandırıyoruz."
+3. Hafta,Metotlar (Capabilities),Instance Methods,"Yetenek: Nesnelerin sadece verisi değil, ""iş yapma"" yeteneği olması gerekir. (Örn: walt.cook())."
+4-5. Hafta,Miras (Inheritance),"super(), Subclasses",DRY (Don't Repeat Yourself): Walter White laboratuvarı her seferinde sıfırdan kurmaz. Kod tekrarını bitirip hiyerarşi kuruyoruz.
+6. Hafta,Kapsülleme (Encapsulation),"Private (__), Get/Set",Güvenlik: Herkes Salamanca ailesinin gizli hesaplarına erişememeli. Veriyi koruma altına alıyoruz.
+7. Hafta,Çok Biçimlilik (Polymorphism),Method Overriding,"Esneklik: Aynı komuta farklı sınıfların farklı tepki vermesi. (Örn: karakter.aksiyon() -> Walt pişirir, Jesse dağıtır)."
+8. Hafta,Hata Yönetimi (Shields Up),"try, except, finally",Savunma: Programın çökmesini önlemek. Dosya işlemlerine (10. Hafta) geçmeden önce kalkanları kurmalıyız.
+9. Hafta,Soyutlama (Abstraction),ABC (Abstract Base Class),Mimari: Detayları gizleyip sadece şablonu göstermek. Java ve profesyonel backend dünyasının giriş kapısı.
+10. Hafta,Dosya İşlemleri (Persistence),"json, open(), read/write","Ölümsüzlük: Verileri diske kaydetmek. Salamanca ailesini bir dosyaya yazıp, programı kapatsak da geri getireceğiz."
 ```
 
 ## --- HATA TURLERI VE DUZELTME 
@@ -154,7 +164,7 @@ TypeError,self parametresini unutmak.,Metotların ilk parametresine self yaz.
 
 ```
 
-## PYTHON TEMEL MANTIK IKINCI KISIM MANTIK ARSIVI 
+## --- PYTHON TEMEL MANTIK IKINCI KISIM MANTIK ARSIVI ---
 ### --- [SINIF_VE_NESNE_TURLERI] --- {I-KISIM}
 #### --- CLASS(SINIF) --- [A_1.0-A_1.4]
 ```PY
@@ -405,6 +415,97 @@ A_6.4 Miras Almanın Avantajları:
 Kod Yazımı,"Her sınıf için isim, maaş, bilgi_goster'i tekrar yazmalısın.",Sadece bir kez ana sınıfta yazarsın.
 Güncelleme,Bilgi gösterme şekli değişirse 10 sınıfta birden değiştirmen gerekir.,Sadece ana sınıfta değiştirmen yeterlidir.
 Düzen,Kodlar darmadağın olur.,Hiyerarşik ve disiplinli bir yapı kurulur.
+```
+#### --- SUPER() --- [A_7.0-A_7.4]
+```PY
+A_7.0 super() Fonksiyonu: Üst Sınıfa Bağlantı
+A_7.1 Nedir: super(), alt sınıfın içinden üst sınıfın (ana sınıfın) metotlarına ve özelliklerine erişmemizi sağlayan özel bir köprüdür.
+
+A_7.2 Neden Gereklidir?
+Miras aldığında bazen ana sınıfın __init__ içindeki özelliklerini (mesela isim ve maas) korumak istersin ama kendi sınıfına yeni özellikler (mesela rutbe) de eklemek istersin. Eğer super() kullanmazsan, ana sınıfın tüm kurulumunu baştan elle yazman gerekir ki bu da "Kod Tekrarı" demektir.
+
+A_7.3 Uygulamalı Örnek (Hiyerarşik Kurulum):
+# 1. ANA SINIF
+class Personel:
+    def __init__(self, isim, maas):
+        self.isim = isim
+        self.maas = maas
+        print("Personel kaydı oluşturuldu.")
+
+# 2. ALT SINIF (super kullanarak miras alıyor)
+class Kurye(Personel):
+    def __init__(self, isim, maas, arac):
+        # super() sayesinde isim ve maas'ı ana sınıfa (Personel) paslıyoruz
+        super().__init__(isim, maas) 
+        
+        # Yeni ve özel özelliği burada ekliyoruz
+        self.arac = arac
+        print(f"Kurye spesifik özellikleri (Araç: {self.arac}) eklendi.")
+
+# TEST:
+mike = Kurye("Mike", 7000, "Tır")
+
+print(f"İsim: {mike.isim} | Maaş: {mike.maas} | Araç: {mike.arac}")
+
+A_7.4 super() Kullanmanın Avantajları:
+Özellik,super() Olmadan,super() İle
+Efor,Ana sınıfın tüm self.x = x satırlarını tekrar yazarsın.,Tek satırla ana sınıfın kurulumunu tetiklersin.
+Güvenlik,Ana sınıfta bir isim değişikliği olursa her yerde düzeltmen gerekir.,"Ana sınıfın adını bile bilmesine gerek kalmadan ""üstümdekini çalıştır"" der."
+Düzen,Kod kalabalığı oluşur.,"Tertemiz, profesyonel bir backend hiyerarşisi sağlar."
+```
+#### --- OBJECT INTERACTION --- [A_8.0-A_8.4]
+```PY
+A_8.0 Nesne Etkileşimi (Object Interaction)
+A_8.1 Nedir: Bir nesnenin, başka bir nesneyi kendi içinde bir değişken olarak kullanması veya bir nesnenin diğerine metotlar aracılığıyla veri/komut göndermesidir.
+
+Benzetme: Bir Telefon nesnesinin içinde bir SimKart nesnesi olması veya bir Kuryenin bir Paket nesnesini teslim almasıdır.
+
+A_8.2 Temel Kurallar:
+
+Nesneyi Parametre Olarak Göndermek: Bir metodun parantezi içine sadece sayı veya metin değil, komple bir nesneyi de gönderebilirsin.
+
+Nokta Notasyonu ile Erişim: İçerideki nesnenin özelliklerine nesne.ozellik şeklinde ulaşabilirsin.
+
+Sorumluluk Paylaşımı: Her sınıf sadece kendi işini yapar ama diğer sınıflarla iş birliği kurar.
+
+A_8.3 Uygulamalı Örnek (Avukat ve Müvekkil Etkileşimi):
+# 1. Müvekkil Sınıfı
+class Muvekkil:
+    def __init__(self, isim, suc):
+        self.isim = isim
+        self.suc = suc
+        self.dosya_durumu = "Acik"
+
+# 2. Avukat Sınıfı (Müvekkil nesnesiyle etkileşime girecek)
+class Avukat:
+    def __init__(self, isim):
+        self.isim = isim
+
+    # BURASI KRİTİK: Parametre olarak bir NESNE alıyor
+    def dosyayi_kapat(self, hedef_muvekkil):
+        print(f"Avukat {self.isim}, {hedef_muvekkil.isim} adlı kişinin dosyasını inceliyor...")
+        
+        if hedef_muvekkil.suc == "Anlasmali":
+            hedef_muvekkil.dosya_durumu = "Kapali"
+            print("Sonuç: Dosya başarıyla kapatıldı.")
+        else:
+            print("Sonuç: Bu dosya mahkemeye gitmeli!")
+
+# TEST:
+saul = Avukat("Saul Goodman")
+walter = Muvekkil("Walter White", "Uretim")
+jesse = Muvekkil("Jesse Pinkman", "Anlasmali")
+
+# Nesnelerin birbirine paslanması
+saul.dosyayi_kapat(walter)
+print("-" * 10)
+saul.dosyayi_kapat(jesse)
+
+A_8.4 Nesne Etkileşimi Neden Önemlidir?
+Özellik,Etkileşim Olmadan,Etkileşim İle (OOP)
+Esneklik,"Sadece basit verilerle (String, Int) sınırlısın.",Komple bir veri paketini (Nesne) taşırsın.
+Gerçekçilik,Kodlar birbirinden kopuktur.,"Gerçek dünya ilişkilerini (Sahip olma, kullanma) taklit eder."
+Bakım,Müvekkil bilgisi değişince her yeri güncellemelisin.,"Müvekkil nesnesi güncellenince, Avukat onu otomatik güncel haliyle görür."
 ```
 
 # --- CODEX PYTHON: ZWEITE AMTSZEIT ---
@@ -744,4 +845,184 @@ graph TD
     style B fill:#fdf,stroke:#333
     style OutL fill:#00ff00,color:#000
     style Start fill:#fff,stroke:#333
+```
+##### --- SUPER() --- [17.04.2026]
+###### --- ERSTER TEIL
+```py
+class Salamanca_genel:
+    def __init__(self, isim, enerji):
+
+        self.isim = isim 
+        self.enerji = enerji 
+        self.soyisim = "Salamanca"
+
+        if self.enerji >= 75: 
+            self.durumu = "Yorgun degil"
+        elif self.enerji <= 74 and self.enerji >= 40:
+            self.durumu = "Biraz Yorgun"
+        else:
+            self.durumu = "Fena Yorgun"
+    def durum_yazdir(self):
+        print(f"isim: {self.isim}  |  soyisim: {self.soyisim}  |  enerji: {self.enerji}  |  yorgunlugu: {self.durumu}")
+
+class Kuzenler(Salamanca_genel):
+    def __init__(self, isim, enerji, silah, kurban, intikam):
+
+        super().__init__(isim,enerji)
+
+        self.silah = silah
+        self.kurban = kurban
+        self.intikam = intikam
+    def saldiri_plani(self):
+        print(f"isim ve soyisim: {self.isim} {self.soyisim}  |  durumu: {self.durumu}  |  silahi: {self.silah}  |  hedefi: {self.kurban}  |  olen_kardesi: {self.intikam} {self.soyisim}")
+
+Tuco = Salamanca_genel ("Tuco", 65)
+Marco = Kuzenler("Marco", 39, "Uzi", "Hank", "Leonel")
+
+Tuco.durum_yazdir()
+Marco.saldiri_plani()
+```
+###### --- ZWEITER TEIL 
+```py
+class White_ailesi: 
+    def __init__(self, isim, soyisim, meslek, gizli_meslek):
+        self.isim = isim 
+        self.soyisim = soyisim
+        self.meslek = meslek 
+        self.g_meslek = gizli_meslek
+        self.durumu = "Hayatta"
+
+    def White_listesi(self):
+        print(f"isim: {self.isim}  |  soyisim: {self.soyisim}  |  meslek: {self.meslek}  |  gizli_meslegi: {self.g_meslek}  |  su anki durumu: {self.durumu}")
+
+class Jessi_Pinkman(White_ailesi):
+    def __init__(self, isim, soyisim, meslek, gizli_meslek, ortagi, saygi_duydugu):
+
+        super().__init__(isim, soyisim, meslek, gizli_meslek)
+
+        self.ortagi = ortagi
+        self.saygi = saygi_duydugu
+
+    def jessi_listesi(self):
+        print(f"isim ve soyisim: {self.isim} {self.soyisim}  |  Meslek: {self.meslek}  |  gizli_meslegi: {self.g_meslek}  |  ortak: {self.ortagi}  |  saygi_duydugu: {self.saygi}")
+
+Walter = White_ailesi("Walter", "White", "K_Ogretmeni", "Asci")
+Jessie = Jessi_Pinkman("Jessie", "Pinkman", "Issiz", "Uyusturucu_Saticisi", "Walter White", "Mike")
+
+Walter.White_listesi()
+Jessie.jessi_listesi()
+```
+###### --- ERSTE VORLAGE ABSCHNITT
+```mermaid
+graph TD
+    %% SINIFLAR ARASI ILISKI
+    Salamanca_genel -- Miras Verir --> Kuzenler
+
+    %% PROGRAM AKISI
+    Baslat([Kod Baslatildi]) --> Obj1[Tuco Nesnesi Olusturuldu]
+    Baslat --> Obj2[Marco Nesnesi Olusturuldu]
+
+    %% TUCO SIKLI
+    subgraph Tuco_Islemleri
+        Obj1 --> T1[Enerji: 65]
+        T1 --> T2{Enerji Kontrolu}
+        T2 -->|40-74 Arasi| T3[Durum: Biraz Yorgun]
+        T3 --> T4[/durum_yazdir Metodu Calisti/]
+    end
+
+    %% MARCO SIKLI
+    subgraph Marco_Islemleri
+        Obj2 --> M1[Enerji: 39 - Silah: Uzi]
+        M1 --> M2{Enerji Kontrolu}
+        M2 -->|40dan Kucuk| M3[Durum: Fena Yorgun]
+        M3 --> M4[/saldiri_plani Metodu Calisti/]
+    end
+
+    %% SONUC
+    T4 --> Bitis([Program Sonu])
+    M4 --> Bitis
+
+    %% RENKLENDIRME
+    style Salamanca_genel fill:#f96,stroke:#333
+    style Kuzenler fill:#fdf,stroke:#333
+    style T3 fill:#fff4dd
+    style M3 fill:#ffcccc
+```
+##### --- OBJECT INTERACTION --- [18.04.2026]
+###### --- ERSTER TEIL
+```py
+class Karakter:
+    def __init__(self, isim, para, enerji):
+
+        self.isim = isim
+        self.para = para
+        self.enerji = enerji 
+        self.Ortaklik = "Devam etmekte"
+    def karakter_listesi(self):
+        print(f"isim: {self.isim}  |  mebla: {self.para}  |  Yorgunluk: {self.enerji}  ")
+
+class Walt_K(Karakter):
+    def __init__(self, isim, para, enerji, Lakabi, E_M, S_M):
+
+        super().__init__(isim, para, enerji)
+
+        self.eski_meslegi = E_M
+        self.suanki_meslegi = S_M
+        self.lakabi = Lakabi
+
+    def emir_transveri(self, hedef_kisi, miktar):
+        hedef_kisi.enerji -= 20 
+        hedef_kisi.para += miktar 
+        print(f"{self.isim}, {hedef_kisi.isim}'ye emir verdi. {hedef_kisi.isim} {hedef_kisi.para} para aldi ama yoruldu")
+
+    def Walter_listesi(self):
+        print(f"Lakabi: {self.lakabi}  |  eski meslegi: {self.eski_meslegi}  |  suanki meslegi: {self.suanki_meslegi}")
+
+class Jessi_K(Karakter):
+    def __init__(self, isim, para, enerji, soyadi, Suanki_meslegi):
+
+        super().__init__(isim, para, enerji)
+
+        self.soyadi = soyadi
+        self.suanki_meslegi = Suanki_meslegi
+        self.populer_sozu = "Bitch"
+    def  isyan_transveri(self, hedef_kisi):
+        self.enerji += 10
+        hedef_kisi.enerji -= 30 
+        print(f"{self.isim} basina buyruk davranir rahatlar  |  {hedef_kisi.isim} sinirlenir ve yorulur")
+
+    def Jessie_listesi(self):
+        print(f"Soyadi: {self.soyadi}  |  Suanki_meslegi: {self.suanki_meslegi}  |  Populer sozu: {self.populer_sozu}")
+
+walt = Walt_K("Walter", 10000, 100, "Heisenberg", "Kimya_ogretmeni", "uyusturucu_Ascisi")
+jessi = Jessi_K("Jessie", 5000, 100, "Pinkman", "Uyusturucu_Dagiticisi")
+
+walt.karakter_listesi()
+walt.emir_transveri(jessi, 500)
+walt.Walter_listesi()
+print("------------------------------------------------------------------------------------------------")
+jessi.karakter_listesi()
+jessi.isyan_transveri(walt)
+jessi.Jessie_listesi()
+```
+###### --- ERSTE VORLAGE ABSCHNITT
+```mermaid
+sequenceDiagram
+    participant W as Walt (Nesne)
+    participant J as Jesse (Nesne)
+
+    Note over W, J: Başlangıç: Her ikisi de 100 Enerjiye Sahip
+    
+    W->>J: emir_transveri(500 Para)
+    Note right of J: Para: +500<br/>Enerji: -20
+    J-->>W: (Jesse yoruldu ama parayı aldı)
+
+    Note over W, J: Ara Durum: Jesse Enerji 80, Walt Enerji 100
+
+    J->>W: isyan_transveri()
+    Note left of W: Enerji: -30 (Sinirlendi)
+    Note right of J: Enerji: +10 (Rahatladı)
+    W-->>J: (Walt sinirlendi, Jesse başına buyruk)
+
+    Note over W, J: Final Durum: Walt Enerji 70, Jesse Enerji 90
 ```
